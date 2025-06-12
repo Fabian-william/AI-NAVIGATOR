@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Navigator: Your Ultimate AI & Tech Compass</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Custom Styles and Animations -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Custom Keyframe Animations for Professional Touch */
+        @keyframes gradient-shift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .hero-gradient-bg {
+            background: linear-gradient(-45deg, #1f2937, #3b0764, #1e3a8a, #0c0a09);
+            background-size: 400% 400%;
+            animation: gradient-shift 15s ease infinite;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseSlight {
+            0%, 100% { transform: rotate(-10deg) scale(1); }
+            50% { transform: rotate(-12deg) scale(1.02); }
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); }
+        }
+
+        .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in { animation: fadeInDown 0.8s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fade-in-down-quick { animation: fadeInDown 0.3s ease-out forwards; }
+        .animate-pulse-slight { animation: pulseSlight 2s ease-in-out infinite; }
+        .animate-bounce-in { animation: bounceIn 0.5s ease-out; }
+    </style>
+</head>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-zinc-950 to-black p-8 font-sans text-gray-100 antialiased relative">
+    <!-- Hero Background -->
+    <div class="absolute inset-0 z-0 hero-gradient-bg opacity-30"></div>
+
+    <div id="app" class="container mx-auto relative z-10 bg-gray-800 bg-opacity-90 rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-700 backdrop-blur-sm">
+        <!-- Header Section -->
+        <header class="text-center mb-16 pt-8 pb-4">
+            <h1 class="text-7xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-xl animate-fade-in-down">
+                <span class="text-blue-400">AI</span> Navigator
+                <span class="ml-4 inline-block transform rotate-[-10deg] animate-pulse-slight">🚀</span>
+            </h1>
+            <p class="text-2xl text-gray-300 font-light max-w-2xl mx-auto animate-fade-in delay-200">
+                Your Ultimate Compass in the World of Artificial Intelligence & Cutting-Edge Technology.
+            </p>
+        </header>
+
+        <!-- Search Bar Section -->
+        <div class="mb-16 relative z-20 animate-fade-in-up delay-400">
+            <div class="flex flex-col sm:flex-row items-center bg-gray-700 rounded-full shadow-lg p-2 transition-all duration-300 focus-within:ring-4 focus-within:ring-blue-500/70 focus-within:shadow-blue-500/40">
+                <input
+                    id="search-input"
+                    type="text"
+                    placeholder="Search for AI tools, hosting, testing, cloud, PDF, PPT..."
+                    class="flex-1 p-3 px-6 bg-transparent text-white placeholder-gray-400 focus:outline-none text-lg rounded-full"
+                    value=""
+                />
+                <button
+                    id="clear-search-button"
+                    class="absolute right-28 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 transition-colors duration-200 p-2 rounded-full hidden"
+                    aria-label="Clear search"
+                >
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                </button>
+                <button
+                    id="search-button"
+                    class="bg-blue-600 text-white py-3 px-8 rounded-full font-bold text-lg shadow-md hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center justify-center sm:ml-2 mt-2 sm:mt-0 group"
+                >
+                    <svg class="w-6 h-6 mr-2 transition-transform duration-200 group-hover:rotate-12" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    Search
+                </button>
+            </div>
+            <!-- Search Suggestions Container -->
+            <div id="suggestions-container" class="absolute left-0 right-0 mt-3 bg-gray-700 rounded-lg shadow-xl max-h-60 overflow-y-auto border border-gray-600 animate-fade-in-down-quick hidden">
+                <!-- Suggestions will be dynamically inserted here -->
+            </div>
+        </div>
+
+        <!-- Content Sections Container -->
+        <div id="content-sections-container">
+            <!-- Content sections will be dynamically inserted here by JavaScript -->
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results-message" class="text-center p-8 bg-gray-800 rounded-lg shadow-lg text-yellow-400 text-2xl font-bold animate-fade-in-up hidden">
+            <p id="no-results-text"></p>
+        </div>
+
+        <!-- Footer with Report Bug Feature -->
+        <footer class="text-center mt-20 pt-8 pb-4 border-t border-gray-700 text-gray-400 text-sm">
+            <p class="mb-4">
+                Found a bug or have a suggestion? We'd love to hear from you!
+            </p>
+            <a
+                href="mailto:fabianwiliamar@gmail.com?subject=Bug%20Report%20/%20Suggestion%20for%20AI%20Navigator"
+                class="inline-flex items-center px-4 py-2 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition-colors duration-300 group"
+            >
+                <svg class="w-5 h-5 mr-2 transition-transform duration-200 group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                Report a Bug / Give Feedback
+            </a>
+            <p class="mt-4">&copy; <span id="current-year"></span> AI Navigator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Scroll to Top Button (managed by JS) -->
+    <!-- This button will be appended to body by JavaScript -->
+
+    <script>
+        // Data for all tools and resources
+        const allItems = [
+            // AI Tools - General Purpose / LLMs
+            {
+                id: 'chatgpt',
+                name: 'ChatGPT',
+                description: 'A powerful conversational AI for content creation, coding assistance, and general queries.',
+                link: 'https://openai.com/blog/chatgpt/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['conversational', 'text generation', 'chatbot', 'coding', 'content creation', 'llm', 'openai']
+            },
+            {
+                id: 'claude',
+                name: 'Claude',
+                description: 'An advanced AI assistant by Anthropic, focused on helpful, honest, and harmless conversations and content generation.',
+                link: 'https://www.anthropic.com/product/claude',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['conversational', 'text generation', 'chatbot', 'content creation', 'ethical AI', 'llm', 'anthropic']
+            },
+            {
+                id: 'google-gemini',
+                name: 'Google Gemini',
+                description: 'Google\'s advanced AI model enhancing productivity across Google products, including email drafting and content creation.',
+                link: 'https://gemini.google.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['productivity', 'text generation', 'summarization', 'google', 'llm', 'chatbot']
+            },
+            {
+                id: 'perplexity-ai',
+                name: 'Perplexity AI',
+                description: 'An AI-powered answer engine that provides direct answers with sources, excelling in natural language processing.',
+                link: 'https://www.perplexity.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['nlp', 'search engine', 'summarization', 'question answering', 'research', 'citations']
+            },
+            {
+                id: 'jasper-ai',
+                name: 'Jasper AI',
+                description: 'An AI writing assistant for generating high-quality marketing copy, blogs, product descriptions, and more.',
+                link: 'https://www.jasper.ai/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['marketing', 'content creation', 'writing', 'blogging', 'copywriting', 'ai writer']
+            },
+            {
+                id: 'runwayml-general',
+                name: 'RunwayML',
+                description: 'A leading platform for AI-powered video editing and content creation, offering magical tools for filmmakers and artists.',
+                link: 'https://runwayml.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video editing', 'video generation', 'art', 'creative AI', 'film', 'ai video']
+            },
+            {
+                id: 'otter-ai',
+                name: 'Otter.ai',
+                description: 'AI-powered transcription service that converts voice conversations to text in real-time, great for meetings and interviews.',
+                link: 'https://otter.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['transcription', 'meeting notes', 'voice to text', 'productivity', 'audio to text']
+            },
+            {
+                id: 'deepseek-llm',
+                name: 'DeepSeek LLM',
+                description: 'Open-source large language models encouraging research and development, fostering collaboration in AI innovation.',
+                link: 'https://deepseek.com/llm/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['open-source', 'llm', 'language model', 'development', 'research', 'code']
+            },
+            {
+                id: 'flowiseai',
+                name: 'FlowiseAI',
+                description: 'A low-code drag-and-drop UI to build your customized LLM orchestration flow & AI agents.',
+                link: 'https://flowiseai.com/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['low-code', 'chatbot', 'llm orchestration', 'workflow automation', 'ai builder', 'visual programming']
+            },
+            {
+                id: 'krea-ai',
+                name: 'Krea.ai',
+                description: 'An AI-powered image generator based on text inputs, offering creative image synthesis capabilities.',
+                link: 'https://www.krea.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['image generation', 'ai art', 'text-to-image', 'creativity', 'ai image']
+            },
+            {
+                id: 'invideo-ai',
+                name: 'InVideo AI',
+                description: 'AI video creation platform that generates videos from text prompts, with features for script and video editing.',
+                link: 'https://invideo.io/ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video creation', 'text-to-video', 'editing', 'ai video maker']
+            },
+            {
+                id: 'midjourney',
+                name: 'Midjourney',
+                description: 'A leading AI art generator that creates stunning images from text prompts.',
+                link: 'https://www.midjourney.com/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['image generation', 'ai art', 'creative ai', 'text-to-image', 'digital art']
+            },
+            {
+                id: 'dall-e',
+                name: 'DALL-E',
+                description: 'OpenAI\'s powerful AI model that generates images from natural language descriptions.',
+                link: 'https://openai.com/dall-e/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['image generation', 'ai art', 'text-to-image', 'openai', 'digital art']
+            },
+            {
+                id: 'github-copilot',
+                name: 'GitHub Copilot',
+                description: 'An AI pair programmer that suggests code and entire functions in real-time within your editor.',
+                link: 'https://github.com/features/copilot',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['coding assistant', 'developer tool', 'code generation', 'github', 'ai coding']
+            },
+            {
+                id: 'tabnine',
+                name: 'Tabnine',
+                description: 'AI code completion tool that predicts and suggests the next lines of code based on context.',
+                link: 'https://www.tabnine.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['coding assistant', 'code completion', 'developer tool', 'ai code']
+            },
+            {
+                id: 'synthesia-general',
+                name: 'Synthesia',
+                description: 'An AI video generation platform that allows you to create professional videos with AI avatars from text.',
+                link: 'https://www.synthesia.io/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['video generation', 'ai avatar', 'text-to-video', 'content creation', 'virtual presenter']
+            },
+            {
+                id: 'descript',
+                name: 'Descript',
+                description: 'An all-in-one audio and video editor that uses AI for transcription, editing by text, and filler word removal.',
+                link: 'https://www.descript.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['audio editing', 'video editing', 'transcription', 'podcast', 'ai editor']
+            },
+            {
+                id: 'elevenlabs',
+                name: 'ElevenLabs',
+                description: 'AI voice generator for realistic text-to-speech, voice cloning, and audio content creation.',
+                link: 'https://elevenlabs.io/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['voice generator', 'text-to-speech', 'voice cloning', 'audio AI', 'content creation', 'ai voice']
+            },
+            {
+                id: 'stable-diffusion',
+                name: 'Stable Diffusion',
+                description: 'Open-source deep learning model for generating images from text descriptions.',
+                link: 'https://stability.ai/stable-diffusion',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['image generation', 'open-source', 'ai art', 'text-to-image', 'digital art']
+            },
+            {
+                id: 'heygen',
+                name: 'HeyGen',
+                description: 'AI video generation platform for creating professional videos with AI avatars and realistic voices from text.',
+                link: 'https://www.heygen.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video generation', 'ai avatar', 'text-to-video', 'marketing video', 'ai video']
+            },
+            {
+                id: 'fliki',
+                name: 'Fliki',
+                description: 'Text-to-video and text-to-speech generator, creating videos with AI voices, stock media, and subtitles.',
+                link: 'https://fliki.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['text-to-video', 'text-to-speech', 'video creation', 'ai voice', 'subtitles', 'ai video maker']
+            },
+            {
+                id: 'bardeen-ai',
+                name: 'Bardeen AI',
+                description: 'AI automation tool that streamlines workflows by connecting web apps and automating tasks.',
+                link: 'https://www.bardeen.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['automation', 'productivity', 'workflow', 'web automation', 'ai automation']
+            },
+            {
+                id: 'n8n',
+                name: 'n8n',
+                description: 'Workflow automation tool that connects apps and services, enabling complex integrations and data flows.',
+                link: 'https://n8n.io/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['automation', 'workflow', 'integration', 'low-code', 'open-source automation']
+            },
+            {
+                id: 'zapier',
+                name: 'Zapier',
+                description: 'Connects over 5,000 apps to automate tasks and workflows without coding.',
+                link: 'https://zapier.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['automation', 'workflow', 'integration', 'no-code', 'app connector']
+            },
+            {
+                id: 'make.com',
+                name: 'Make (formerly Integromat)',
+                description: 'Visual platform to design, build, and automate anything from tasks to workflows.',
+                link: 'https://www.make.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['automation', 'workflow', 'integration', 'no-code', 'visual builder', 'app connector']
+            },
+            {
+                id: 'adobefirefly',
+                name: 'Adobe Firefly',
+                description: 'Generative AI models within Adobe creative apps for image, text effect, and vector generation.',
+                link: 'https://www.adobe.com/sensei/generative-ai/firefly.html',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['image generation', 'text effects', 'design', 'adobe', 'creative ai', 'generative art']
+            },
+            {
+                id: 'figma-ai-plugins',
+                name: 'Figma AI Plugins',
+                description: 'AI-powered plugins for Figma that assist with design tasks, content generation, and prototyping.',
+                link: 'https://www.figma.com/community/plugins',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['design', 'ui/ux', 'prototyping', 'figma', 'creative ai', 'ai design']
+            },
+            {
+                id: 'notion-ai',
+                name: 'Notion AI',
+                description: 'AI assistant integrated into Notion for writing, brainstorming, summarizing, and task automation.',
+                link: 'https://www.notion.so/product/ai',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['productivity', 'writing', 'summarization', 'task management', 'notes', 'ai assistant']
+            },
+            {
+                id: 'coda-ai',
+                name: 'Coda AI',
+                description: 'AI features built into Coda documents for writing, summarizing, and automating tasks within your docs.',
+                link: 'https://coda.io/product/ai',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['productivity', 'writing', 'summarization', 'document automation', 'no-code', 'ai docs']
+            },
+            {
+                id: 'microsoft-copilot',
+                name: 'Microsoft Copilot',
+                description: 'AI assistant integrated across Microsoft 365 apps to enhance productivity and creativity.',
+                link: 'https://www.microsoft.com/en-us/microsoft-copilot',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['productivity', 'microsoft 365', 'work automation', 'ai assistant', 'office automation']
+            },
+            {
+                id: 'github-copilot-enterprise',
+                name: 'GitHub Copilot Enterprise',
+                description: 'Advanced AI pair programming for enterprise teams, customized with private codebases.',
+                link: 'https://github.com/enterprise/copilot',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['coding assistant', 'enterprise', 'code generation', 'developer tool', 'ai coding']
+            },
+            {
+                id: 'alphacode',
+                name: 'AlphaCode',
+                description: 'DeepMind\'s AI system that writes computer programs at a competitive level.',
+                link: 'https://www.deepmind.com/blog/alphacode-an-ai-engineer-achieves-competitive-programming-performance',
+                category: 'ai_tool',
+                type: 'Research/Experimental',
+                keywords: ['code generation', 'competitive programming', 'ai research', 'deepmind']
+            },
+            {
+                id: 'adept-ai',
+                name: 'Adept AI',
+                description: 'AI that can perform complex tasks in software by understanding natural language commands.',
+                link: 'https://www.adept.ai/',
+                category: 'ai_tool',
+                type: 'Research/Paid',
+                keywords: ['task automation', 'software automation', 'natural language interface', 'ai agent']
+            },
+            {
+                id: 'replit-ai',
+                name: 'Replit AI',
+                description: 'AI coding assistant integrated into the Replit IDE for code generation, completion, and debugging.',
+                link: 'https://replit.com/ai',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['coding assistant', 'ide', 'code generation', 'developer tool', 'ai coding', 'online ide']
+            },
+            {
+                id: 'cursor-ide',
+                name: 'Cursor IDE',
+                description: 'An AI-first code editor designed to help you write, understand, and debug code faster with integrated AI.',
+                link: 'https://www.cursor.sh/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['code editor', 'coding assistant', 'developer tool', 'debugging', 'ai code editor']
+            },
+            {
+                id: 'grammarly-go',
+                name: 'GrammarlyGo',
+                description: 'AI writing assistant for grammar, spelling, style, and tone correction across various applications.',
+                link: 'https://www.grammarly.com/go',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['writing assistant', 'grammar check', 'spelling check', 'productivity', 'ai writing']
+            },
+            {
+                id: 'copy-ai',
+                name: 'Copy.ai',
+                description: 'AI writing tool for generating marketing copy, social media content, blog outlines, and more.',
+                link: 'https://www.copy.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['content creation', 'marketing copy', 'social media', 'blogging', 'writing', 'ai writer']
+            },
+            {
+                id: 'writesonic',
+                name: 'Writesonic',
+                description: 'AI writer for generating high-quality articles, blog posts, ads, and landing pages quickly.',
+                link: 'https://writesonic.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['content creation', 'blogging', 'copywriting', 'marketing', 'writing', 'ai writer']
+            },
+            {
+                id: 'anyword',
+                name: 'Anyword',
+                description: 'AI writing assistant optimized for marketing copy that drives conversions, with predictive performance scores.',
+                link: 'https://anyword.com/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['marketing copy', 'conversion optimization', 'content creation', 'writing', 'ai marketing']
+            },
+            {
+                id: 'lovo-ai',
+                name: 'LOVO AI',
+                description: 'AI voice generator and text-to-speech platform with a wide range of realistic voices and emotional tones.',
+                link: 'https://lovo.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['voice generator', 'text-to-speech', 'ai voice', 'audio creation', 'voice synthesis']
+            },
+            {
+                id: 'murf-ai',
+                name: 'Murf.ai',
+                description: 'AI voice generator that transforms text into natural-sounding speech with various voices and custom pronunciations.',
+                link: 'https://murf.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['voice generator', 'text-to-speech', 'ai voice', 'audio creation', 'voice synthesis']
+            },
+            {
+                id: 'pictory',
+                name: 'Pictory',
+                description: 'AI video editor that converts text into videos automatically, great for social media content.',
+                link: 'https://pictory.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video editing', 'text-to-video', 'content creation', 'social media', 'ai video']
+            },
+            {
+                id: 'remove-bg',
+                name: 'Remove.bg',
+                description: 'AI tool to remove image backgrounds automatically and instantly. Perfect for e-commerce and graphic design.',
+                link: 'https://www.remove.bg/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['image editing', 'background removal', 'photo editing', 'graphic design', 'bg remover', 'free background removal']
+            },
+            {
+                id: 'adobe-photoshop-ai',
+                name: 'Adobe Photoshop (AI features)',
+                description: 'Professional image editing software with integrated AI features like Generative Fill and Neural Filters.',
+                link: 'https://www.adobe.com/products/photoshop/generative-fill.html',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['image editing', 'generative ai', 'photo editing', 'graphic design', 'ai image editing']
+            },
+            {
+                id: 'midjourney-v6',
+                name: 'Midjourney V6',
+                description: 'The latest iteration of Midjourney\'s powerful AI art generator, offering enhanced realism and control.',
+                link: 'https://www.midjourney.com/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['image generation', 'ai art', 'creative ai', 'text-to-image', 'digital art']
+            },
+            {
+                id: 'dall-e-3',
+                name: 'DALL-E 3',
+                description: 'OpenAI\'s advanced image generation model, known for understanding nuanced prompts and generating coherent images.',
+                link: 'https://openai.com/dall-e-3',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['image generation', 'ai art', 'text-to-image', 'openai', 'digital art']
+            },
+            {
+                id: 'fireflies-ai',
+                name: 'Fireflies.ai',
+                description: 'AI assistant that records, transcribes, and summarizes your meetings automatically.',
+                link: 'https://fireflies.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['meeting notes', 'transcription', 'summarization', 'productivity', 'ai assistant', 'meeting recorder']
+            },
+            {
+                id: 'grain-co',
+                name: 'Grain.co',
+                description: 'Records, transcribes, and clips moments from video meetings for easy sharing and collaboration.',
+                link: 'https://grain.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['meeting recorder', 'transcription', 'video clips', 'collaboration', 'ai meeting']
+            },
+            {
+                id: 'ai-writer',
+                name: 'AI-Writer',
+                description: 'AI writing assistant that generates full articles and blog posts from a headline or keyword.',
+                link: 'https://ai-writer.com/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['article writing', 'blogging', 'content generation', 'seo content', 'ai writer']
+            },
+            {
+                id: 'surfer-seo',
+                name: 'Surfer SEO (AI features)',
+                description: 'AI-powered content optimization tool for SEO, helping to write and optimize articles for higher rankings.',
+                link: 'https://surferseo.com/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['seo', 'content optimization', 'article writing', 'keyword research', 'ai seo']
+            },
+            {
+                id: 'semrush-content-ai',
+                name: 'SEMrush ContentShake AI',
+                description: 'AI writing tool part of SEMrush for generating and optimizing content ideas.',
+                link: 'https://www.semrush.com/features/content-shake-ai/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['seo', 'content marketing', 'content generation', 'writing', 'ai content']
+            },
+            {
+                id: 'microsoft-designer',
+                name: 'Microsoft Designer',
+                description: 'AI-powered design app for creating stunning visuals, social media posts, invitations, and more.',
+                link: 'https://designer.microsoft.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['graphic design', 'image generation', 'social media design', 'microsoft', 'ai design']
+            },
+            {
+                id: 'canva-magic-design',
+                name: 'Canva Magic Design',
+                description: 'AI features within Canva for instantly generating designs from text prompts, images, or ideas.',
+                link: 'https://www.canva.com/magic-studio/magic-design/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['graphic design', 'template design', 'ai powered', 'visual content', 'ai design']
+            },
+            {
+                id: 'tome-ai',
+                name: 'Tome AI',
+                description: 'AI-powered storytelling format that helps you create engaging presentations and documents easily.',
+                link: 'https://tome.app/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['presentation', 'storytelling', 'document creation', 'ai powered', 'ai presentation']
+            },
+            {
+                id: 'gamma-app',
+                name: 'Gamma App',
+                description: 'AI-powered presentation tool that allows you to create beautiful and interactive presentations and documents in minutes.',
+                link: 'https://gamma.app/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['presentation', 'document creation', 'ai powered', 'interactive content', 'ai presentation']
+            },
+            {
+                id: 'elai-io',
+                name: 'Elai.io',
+                description: 'AI video generation platform for creating videos with photorealistic avatars and natural-sounding voices.',
+                link: 'https://elai.io/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video generation', 'ai avatar', 'text-to-video', 'corporate video', 'ai video']
+            },
+            {
+                id: 'deepmotion',
+                name: 'DeepMotion',
+                description: 'AI motion capture for creating 3D animations from 2D videos automatically.',
+                link: 'https://www.deepmotion.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['3d animation', 'motion capture', 'video to 3d', 'creative ai', 'ai animation']
+            },
+            {
+                id: 'lumen5',
+                name: 'Lumen5',
+                description: 'AI video maker that transforms text and blog posts into engaging video content.',
+                link: 'https://lumen5.com/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video creation', 'text-to-video', 'marketing video', 'social media video', 'ai video maker']
+            },
+            {
+                id: 'replika',
+                name: 'Replika',
+                description: 'An AI companion that learns from your conversations to become a friend, mentor, or romantic partner.',
+                link: 'https://replika.ai/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['ai companion', 'chatbot', 'mental wellness', 'personal assistant', 'emotional ai']
+            },
+            {
+                id: 'you-com',
+                name: 'You.com',
+                description: 'An AI-powered search engine that summarizes results from the web and provides instant answers.',
+                link: 'https://you.com/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['search engine', 'summarization', 'ai search', 'privacy', 'search assistant']
+            },
+            {
+                id: 'huggingface-hub',
+                name: 'Hugging Face Hub',
+                description: 'A platform for sharing and discovering pre-trained machine learning models, datasets, and demos. A vast open-source ML community.',
+                link: 'https://huggingface.co/models',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['machine learning models', 'nlp models', 'open-source ai', 'community', 'ai models', 'datasets']
+            },
+            {
+                id: 'streamlit',
+                name: 'Streamlit',
+                description: 'Open-source Python framework for turning data scripts into shareable web apps easily. Great for AI/ML demos.',
+                link: 'https://streamlit.io/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['python web apps', 'data science apps', 'dashboard', 'open-source', 'ml demos', 'app development']
+            },
+            {
+                id: 'gradio',
+                name: 'Gradio',
+                description: 'Open-source Python library for quickly creating customizable UI components for your ML models. Ideal for quick demos.',
+                link: 'https://gradio.app/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['machine learning ui', 'python ui', 'demo creation', 'open-source', 'ai demos']
+            },
+            {
+                id: 'tf-keras',
+                name: 'TensorFlow/Keras',
+                description: 'Open-source machine learning framework for building and training neural networks. Widely used for deep learning.',
+                link: 'https://www.tensorflow.org/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['machine learning framework', 'deep learning', 'neural networks', 'open-source', 'ai development', 'python ml']
+            },
+            {
+                id: 'pytorch',
+                name: 'PyTorch',
+                description: 'Open-source machine learning framework developed by Facebook for deep learning applications. Known for flexibility.',
+                link: 'https://pytorch.org/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['machine learning framework', 'deep learning', 'neural networks', 'open-source', 'ai development', 'python ml']
+            },
+            {
+                id: 'scikit-learn',
+                name: 'Scikit-learn',
+                description: 'Free machine learning library for Python, offering various classification, regression, and clustering algorithms. Essential for data science.',
+                link: 'https://scikit-learn.org/stable/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['machine learning library', 'python', 'data science', 'algorithms', 'ml library']
+            },
+            {
+                id: 'gamma-ai',
+                name: 'Gamma AI',
+                description: 'An AI-powered document, presentation, and webpage builder that helps you create engaging content quickly.',
+                link: 'https://gamma.app/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['presentation', 'document creation', 'webpage builder', 'ai powered', 'content creation']
+            },
+            {
+                id: 'midjourney-ai',
+                name: 'Midjourney AI',
+                description: 'A leading AI art generator that creates stunning images from text prompts, known for its artistic quality and active community.',
+                link: 'https://www.midjourney.com/',
+                category: 'ai_tool',
+                type: 'Paid',
+                keywords: ['image generation', 'ai art', 'text-to-image', 'creative AI', 'digital art']
+            },
+            {
+                id: 'chatsonic',
+                name: 'Chatsonic',
+                description: 'An AI chatbot that combines generative AI with Google Search for up-to-date content and images, a versatile alternative to ChatGPT.',
+                link: 'https://writesonic.com/chatsonic',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['chatbot', 'text generation', 'image generation', 'google search integration', 'ai chatbot']
+            },
+            {
+                id: 'rytr',
+                name: 'Rytr',
+                description: 'An AI writing assistant that helps you create high-quality content in minutes, for blogs, emails, ads, and more.',
+                link: 'https://rytr.me/',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['writing assistant', 'content creation', 'blogging', 'copywriting', 'ai writer']
+            },
+            {
+                id: 'lexica-art',
+                name: 'Lexica Art',
+                description: 'An AI image generator and search engine for Stable Diffusion prompts and images, great for inspiration and creation.',
+                link: 'https://lexica.art/',
+                category: 'ai_tool',
+                type: 'Free',
+                keywords: ['image generation', 'ai art', 'stable diffusion', 'prompt search', 'free ai art']
+            },
+            {
+                id: 'remove-video-background',
+                name: 'Remove.bg (Video)',
+                description: 'AI tool to automatically remove video backgrounds without a green screen. Fast and efficient for video editing.',
+                link: 'https://www.remove.bg/video',
+                category: 'ai_tool',
+                type: 'Freemium',
+                keywords: ['video editing', 'background removal', 'ai video', 'free video background removal']
+            },
+
+            // Web Hosting
+            {
+                id: 'github-pages',
+                name: 'GitHub Pages',
+                description: 'Free static site hosting directly from a GitHub repository. Perfect for personal projects, portfolios, and documentation. Includes a `github.io` subdomain.',
+                link: 'https://pages.github.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['static hosting', 'github', 'development', 'personal website', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'netlify',
+                name: 'Netlify',
+                description: 'Offers a generous free tier for static sites, modern web projects, and JAMstack deployments with continuous deployment. Provides free subdomains.',
+                link: 'https://www.netlify.com/',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['static hosting', 'jamstack', 'ci/cd', 'frontend', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'vercel',
+                name: 'Vercel',
+                description: 'A platform for frontend developers, ideal for static sites and React/Next.js applications, known for speed and ease of use. Offers free subdomains.',
+                link: 'https://vercel.com/',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['static hosting', 'next.js', 'frontend', 'developer experience', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'firebase-hosting',
+                name: 'Firebase Hosting',
+                description: 'Part of Google\'s Firebase platform, suitable for static sites and single-page applications, with global CDN and SSL. Includes a free Firebase subdomain.',
+                link: 'https://firebase.google.com/docs/hosting',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['static hosting', 'spa', 'google', 'cdn', 'free hosting', 'free subdomain']
+            },
+            {
+                id: '000webhost',
+                name: '000webhost',
+                description: 'A free web hosting provider offering PHP, MySQL, and cPanel access, suitable for small, experimental projects. Offers free subdomains.',
+                link: 'https://www.000webhost.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['free hosting', 'php', 'mysql', 'cpanel', 'free subdomain', 'full hosting']
+            },
+            {
+                id: 'huggingface-spaces',
+                name: 'Hugging Face Spaces',
+                description: 'Host and share your machine learning demos and applications directly from your repository. Offers free hosting with a `hf.space` subdomain.',
+                link: 'https://huggingface.co/spaces',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['ml hosting', 'model deployment', 'streamlit', 'gradio', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'streamlit-cloud',
+                name: 'Streamlit Community Cloud',
+                description: 'Deploy Streamlit (or plain Python) apps directly from a GitHub repo, great for interactive data science demos. Free with a `streamlit.app` subdomain.',
+                link: 'https://streamlit.io/cloud',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['python app hosting', 'ml demos', 'data science apps', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'pythonanywhere',
+                name: 'PythonAnywhere',
+                description: 'Online IDE and web hosting for Python, allowing you to host web apps and run Python scripts. Offers a free beginner account with subdomain.',
+                link: 'https://www.pythonanywhere.com/',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['python hosting', 'web app hosting', 'ide', 'development', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'render-com',
+                name: 'Render.com',
+                description: 'Unified cloud for all your apps and websites, offering generous free tiers for web services and static sites. Provides free subdomains.',
+                link: 'https://render.com/',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['cloud hosting', 'web services', 'static sites', 'full stack', 'free hosting', 'free subdomain']
+            },
+            {
+                id: 'railway-app',
+                name: 'Railway.app',
+                description: 'Developer platform that helps you deploy code, provision infrastructure, and collaborate with ease. Offers a free tier with usage limits.',
+                link: 'https://railway.app/',
+                category: 'web_hosting',
+                type: 'Freemium',
+                keywords: ['cloud hosting', 'developer platform', 'deployment', 'infrastructure', 'free hosting']
+            },
+            {
+                id: 'mybinder-org',
+                name: 'MyBinder.org',
+                description: 'Launches live Jupyter Notebooks from a GitHub repo, creating interactive, reproducible environments. Completely free for reproducible science.',
+                link: 'https://mybinder.org/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['jupyter notebooks', 'reproducible research', 'data science demos', 'education', 'free hosting']
+            },
+            {
+                id: 'wix-hosting',
+                name: 'Wix (Free Hosting)',
+                description: 'Website builder with a free hosting plan, offering a drag-and-drop interface for easy site creation. Comes with a free subdomain.',
+                link: 'https://www.wix.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['website builder', 'free hosting', 'no-code website', 'small business', 'free subdomain']
+            },
+            {
+                id: 'weebly-hosting',
+                name: 'Weebly (Free Hosting)',
+                description: 'Another free website builder with a hosting plan, suitable for small personal or business websites. Includes a free subdomain.',
+                link: 'https://www.weebly.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['website builder', 'free hosting', 'e-commerce', 'small business', 'free subdomain']
+            },
+            {
+                id: 'wordpress-com',
+                name: 'WordPress.com (Free Hosting)',
+                description: 'Popular blogging and website platform with a free hosting plan for basic sites and blogs. Offers a free `wordpress.com` subdomain.',
+                link: 'https://wordpress.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['blogging', 'website builder', 'free hosting', 'cms', 'free subdomain']
+            },
+            {
+                id: 'infinityfree',
+                name: 'InfinityFree',
+                description: 'Offers completely free web hosting with PHP, MySQL, and no forced ads. You can use your own domain or a free subdomain.',
+                link: 'https://infinityfree.net/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['free hosting', 'php', 'mysql', 'no ads', 'unlimited hosting', 'free subdomain']
+            },
+            {
+                id: 'awardspace',
+                name: 'AwardSpace',
+                description: 'Free web hosting with PHP, MySQL, and a website builder for small projects. Provides a free subdomain.',
+                link: 'https://www.awardspace.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['free hosting', 'php', 'mysql', 'website builder', 'free subdomain']
+            },
+            {
+                id: 'freehosting-com',
+                name: 'FreeHosting.com',
+                description: 'Offers free hosting with generous resource allocation for personal and small business sites. Supports own domains.',
+                link: 'https://www.freehosting.com/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['free hosting', 'unlimited bandwidth', 'cpanel']
+            },
+            {
+                id: 'surge-sh',
+                name: 'Surge.sh',
+                description: 'Simple, single-command static web publishing for front-end developers. Offers free custom domains or subdomains.',
+                link: 'https://surge.sh/',
+                category: 'web_hosting',
+                type: 'Free',
+                keywords: ['static hosting', 'frontend deployment', 'cli', 'free', 'free subdomain']
+            },
+
+            // AI Testing Tools
+            {
+                id: 'accelq',
+                name: 'AccelQ',
+                description: 'AI-powered, codeless test automation platform focusing on quality engineering and continuous testing.',
+                link: 'https://www.accelq.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['qa', 'testing', 'automation', 'codeless', 'ai testing']
+            },
+            {
+                id: 'applitools',
+                name: 'Applitools',
+                description: 'AI-powered visual testing platform that automates comparing visual elements across applications. Ensures UI consistency.',
+                link: 'https://applitools.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['visual testing', 'qa', 'automation', 'ui testing', 'ai testing']
+            },
+            {
+                id: 'testim',
+                name: 'Testim',
+                description: 'AI-powered test automation tool designed to accelerate the creation and maintenance of automated tests. Self-healing tests.',
+                link: 'https://www.testim.io/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['testing', 'automation', 'generative ai', 'qa', 'ai testing', 'test automation']
+            },
+            {
+                id: 'mabl',
+                name: 'Mabl',
+                description: 'AI-powered test automation tool that focuses on making automated testing accessible to all development team members. Low-code automation.',
+                link: 'https://www.mabl.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['testing', 'automation', 'no-code testing', 'devops', 'ai testing', 'test automation']
+            },
+            {
+                id: 'tricentis-tosca',
+                name: 'Tricentis Tosca',
+                description: 'End-to-end continuous testing platform using AI and machine learning for test automation. Enterprise-grade testing.',
+                link: 'https://www.tricentis.com/products/automate-continuous-testing-tosca',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['continuous testing', 'test automation', 'enterprise testing', 'qa', 'ai testing']
+            },
+            {
+                id: 'katalon-studio',
+                name: 'Katalon Studio (AI)',
+                description: 'Comprehensive test automation framework with AI capabilities for web, API, mobile, and desktop testing. Offers a free version.',
+                link: 'https://katalon.com/',
+                category: 'ai_tester',
+                type: 'Freemium',
+                keywords: ['test automation', 'api testing', 'mobile testing', 'qa', 'ai testing', 'free testing tool']
+            },
+            {
+                id: 'testrigor',
+                name: 'TestRigor',
+                description: 'Generative AI driven test automation platform that creates end-to-end tests from plain English. No-code scripting.',
+                link: 'https://testrigor.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['no-code testing', 'generative ai', 'test automation', 'end-to-end testing', 'ai testing']
+            },
+            {
+                id: 'browserstack-automate',
+                name: 'BrowserStack Automate (AI)',
+                description: 'Cloud-based cross-browser and cross-device testing with AI-enhanced capabilities for faster test execution. Global device farm.',
+                link: 'https://www.browserstack.com/automate',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['cross-browser testing', 'mobile testing', 'cloud testing', 'qa', 'ai testing']
+            },
+            {
+                id: 'sauce-labs-ai',
+                name: 'Sauce Labs (AI)',
+                description: 'Cloud-based testing platform leveraging AI to optimize web and mobile application testing. Automated and manual testing.',
+                link: 'https://saucelabs.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['cloud testing', 'web testing', 'mobile testing', 'qa', 'ai testing']
+            },
+            {
+                id: 'perfecto-mobile',
+                name: 'Perfecto',
+                description: 'AI-driven testing tool focused on mobile and web applications for continuous testing in the cloud. Real devices and emulators.',
+                link: 'https://www.perfecto.io/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['mobile testing', 'web testing', 'continuous testing', 'cloud qa', 'ai testing']
+            },
+            {
+                id: 'reflect-ai',
+                name: 'Reflect (AI)',
+                description: 'No-code automated end-to-end testing tool that uses AI to maintain tests. Visual test automation.',
+                link: 'https://reflect.run/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['no-code testing', 'end-to-end testing', 'test maintenance', 'qa', 'ai testing']
+            },
+            {
+                id: 'aqua-alm',
+                name: 'Aqua ALM (AI)',
+                description: 'AI testing tool for organizing and simplifying test management, enhancing efficiency and accuracy. Full lifecycle management.',
+                link: 'https://aqua-alm.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['test management', 'test automation', 'qa', 'alm', 'ai testing']
+            },
+            {
+                id: 'practitest',
+                name: 'PractiTest (AI)',
+                description: 'AI-based test management tool providing centralized control for all testing activities and automated workflows. Integrates with existing tools.',
+                link: 'https://www.practitest.com/',
+                category: 'ai_tester',
+                type: 'Paid',
+                keywords: ['test management', 'qa', 'test automation', 'alm', 'ai testing']
+            },
+
+            // IT Resources - Cloud Providers
+            {
+                id: 'aws',
+                name: 'Amazon Web Services (AWS)',
+                description: 'The most comprehensive and widely adopted cloud platform, offering over 200 fully featured services globally. Includes a robust free tier.',
+                link: 'https://aws.amazon.com/',
+                category: 'it_resource',
+                type: 'Cloud Provider',
+                keywords: ['cloud', 'infrastructure', 'compute', 'storage', 'database', 'serverless', 'free tier', 'amazon']
+            },
+            {
+                id: 'azure',
+                name: 'Microsoft Azure',
+                description: 'Microsoft\'s cloud platform, providing a wide range of services including computing, analytics, storage, and networking. Offers a free account with credit.',
+                link: 'https://azure.microsoft.com/',
+                category: 'it_resource',
+                type: 'Cloud Provider',
+                keywords: ['cloud', 'enterprise', 'hybrid cloud', 'microsoft', 'compute', 'storage', 'free tier']
+            },
+            {
+                id: 'gcp',
+                name: 'Google Cloud Platform (GCP)',
+                description: 'Google\'s suite of cloud computing services, known for its strong AI/ML capabilities and global network. Has a substantial free tier and credit.',
+                link: 'https://cloud.google.com/',
+                category: 'it_resource',
+                type: 'Cloud Provider',
+                keywords: ['cloud', 'ai/ml', 'data analytics', 'google', 'compute', 'storage', 'free tier']
+            },
+            {
+                id: 'oracle-cloud-free-tier',
+                name: 'Oracle Cloud Free Tier',
+                description: 'Offers always-free services for a variety of cloud resources, including compute, storage, and database. Very generous free tier for specific services.',
+                link: 'https://www.oracle.com/cloud/free/',
+                category: 'it_resource',
+                type: 'Free',
+                keywords: ['cloud', 'free tier', 'database', 'compute', 'oracle', 'always free']
+            },
+            {
+                id: 'ibm-cloud-lite',
+                name: 'IBM Cloud Lite Account',
+                description: 'Provides access to a range of IBM Cloud services for free, without time limits or credit card requirements. Great for experimentation.',
+                link: 'https://www.ibm.com/cloud/free/',
+                category: 'it_resource',
+                type: 'Free',
+                keywords: ['cloud', 'free tier', 'ibm', 'ai services', 'database', 'free cloud']
+            },
+            {
+                id: 'heroku-free-tier',
+                name: 'Heroku (Free Tier)',
+                description: 'A cloud platform as a service (PaaS) supporting several programming languages, with a free tier for small apps. Ideal for quick deployments.',
+                link: 'https://www.heroku.com/free',
+                category: 'it_resource',
+                type: 'Freemium',
+                keywords: ['paas', 'cloud hosting', 'web apps', 'development', 'free tier', 'app deployment']
+            },
+            {
+                id: 'digitalocean-free',
+                name: 'DigitalOcean (Free Resources)',
+                description: 'Cloud computing platform offering droplets (VMs), managed databases, and other services. Often provides initial free credit.',
+                link: 'https://www.digitalocean.com/pricing/', // Direct free tier page might not exist, but offers credit
+                category: 'it_resource',
+                type: 'Freemium',
+                keywords: ['cloud', 'vps', 'droplets', 'free credit', 'developer cloud']
+            },
+
+            // Utility Tools - PDF
+            {
+                id: 'ilovepdf',
+                name: 'iLovePDF',
+                description: 'A comprehensive online suite for all PDF needs: merge, split, compress, convert, edit, and sign PDFs. Offers a powerful free tier for daily use.',
+                link: 'https://www.ilovepdf.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['pdf editor', 'pdf converter', 'pdf compress', 'document management', 'merge pdf', 'split pdf', 'edit pdf', 'free pdf tool']
+            },
+            {
+                id: 'smallpdf',
+                name: 'Smallpdf',
+                description: 'An online PDF suite for converting, compressing, editing, merging, splitting, and signing PDFs. Offers a free tier with daily limits.',
+                link: 'https://smallpdf.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['pdf editor', 'pdf converter', 'pdf compress', 'document management', 'ilovepdf alternative', 'free pdf tool']
+            },
+            {
+                id: 'adobe-acrobat-online',
+                name: 'Adobe Acrobat Online',
+                description: 'Adobe\'s online PDF tools for creating, editing, signing, and converting PDFs, a comprehensive solution. Offers free basic tools for quick edits.',
+                link: 'https://acrobat.adobe.com/us/en/online/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['pdf editor', 'pdf converter', 'adobe', 'document management', 'free pdf tool']
+            },
+            {
+                id: 'easy-pdf',
+                name: 'Easy PDF',
+                description: 'A free online PDF converter and editor with various tools to convert, merge, compress, and split PDFs. Simple and effective.',
+                link: 'https://easypdf.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['pdf converter', 'pdf editor', 'free pdf tools', 'online pdf']
+            },
+
+            // Utility Tools - General Free Additions
+            {
+                id: 'photopea',
+                name: 'Photopea',
+                description: 'Free online photo editor, supporting PSD, XCF, Sketch, XD, and CDR formats. A powerful Photoshop alternative directly in your browser.',
+                link: 'https://www.photopea.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['image editor', 'photo editor', 'free', 'graphic design', 'online tool', 'photoshop alternative']
+            },
+            {
+                id: 'pixlr',
+                name: 'Pixlr',
+                description: 'Free online photo editor and design tools for easy photo editing and graphic design from your browser or mobile device. Offers different versions.',
+                link: 'https://pixlr.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['image editor', 'photo editor', 'graphic design', 'online tool', 'free image editor']
+            },
+            {
+                id: 'google-docs',
+                name: 'Google Docs',
+                description: 'Free online word processor for creating and formatting documents, collaborating with others in real-time. Part of Google Workspace.',
+                link: 'https://docs.google.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['word processor', 'online office', 'collaboration', 'google', 'document creation', 'free word processor']
+            },
+            {
+                id: 'google-sheets',
+                name: 'Google Sheets',
+                description: 'Free online spreadsheet program for creating, editing, and collaborating on spreadsheets. Powerful for data analysis and organization.',
+                link: 'https://sheets.google.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['spreadsheet', 'online office', 'data analysis', 'google', 'productivity', 'free spreadsheet']
+            },
+            {
+                id: 'google-slides',
+                name: 'Google Slides',
+                description: 'Free online presentation software for creating and presenting polished presentations. Collaborate easily on slides.',
+                link: 'https://slides.google.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['presentation software', 'online office', 'google', 'slides', 'free presentation tool']
+            },
+            {
+                id: 'gnome-online-emacs',
+                name: 'Online Text Editor (Write.com)',
+                description: 'A free, minimalist online text editor with basic functionalities for quick edits and notes. Simple and fast.',
+                link: 'https://www.write.com/online-text-editor/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['text editor', 'online editor', 'notes', 'free text editor', 'notepad online']
+            },
+            {
+                id: 'markdown-live-preview',
+                name: 'Markdown Live Preview',
+                description: 'Online tool for writing Markdown and instantly seeing the rendered HTML output. Essential for developers and writers.',
+                link: 'https://markdownlivepreview.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['markdown', 'text editor', 'developer tool', 'preview', 'free markdown editor']
+            },
+            {
+                id: 'json-formatter-validator',
+                name: 'JSON Formatter & Validator',
+                description: 'Free online tool to format and validate JSON data, making it readable and ensuring correctness. Crucial for API development.',
+                link: 'https://jsonformatter.org/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['json', 'developer tool', 'validator', 'formatter', 'free json tool']
+            },
+            {
+                id: 'online-code-editors',
+                name: 'Online Code Editors (e.g., CodePen, JSFiddle)',
+                description: 'Platforms for writing, testing, and showcasing HTML, CSS, and JavaScript code snippets directly in your browser. Great for quick prototypes.',
+                link: 'https://codepen.io/', // Example link, user can explore alternatives
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['code editor', 'frontend development', 'html', 'css', 'javascript', 'online ide', 'free code editor']
+            },
+            {
+                id: 'todoist-app',
+                name: 'Todoist',
+                description: 'Popular productivity app for task management, project organization, and team collaboration. Offers a generous free tier for personal use.',
+                link: 'https://todoist.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['task management', 'productivity', 'todo list', 'project management', 'free todo app']
+            },
+            {
+                id: 'trello-boards',
+                name: 'Trello',
+                description: 'Visual collaboration tool that organizes your projects into boards, lists, and cards. Free for personal use with unlimited boards.',
+                link: 'https://trello.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['project management', 'collaboration', 'kanban', 'productivity', 'free project management']
+            },
+            {
+                id: 'asana-pm',
+                name: 'Asana',
+                description: 'Work management platform for teams to organize, track, and manage their work. Free for small teams up to 15 users.',
+                link: 'https://asana.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['project management', 'task management', 'team collaboration', 'productivity', 'free asana']
+            },
+            {
+                id: 'canva-resume-builder',
+                name: 'Canva Resume Builder',
+                description: 'Free online resume builder with customizable templates and design tools to create professional resumes quickly. Easy drag-and-drop interface.',
+                link: 'https://www.canva.com/create/resumes/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['resume builder', 'cv maker', 'templates', 'design', 'job application', 'free resume maker']
+            },
+            {
+                id: 'zety-resume-builder',
+                name: 'Zety Resume Builder',
+                description: 'Online resume and CV builder offering professional templates and writing tips. Offers a free trial and basic downloadable PDF option.',
+                link: 'https://zety.com/resume-builder',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['resume builder', 'cv maker', 'job application', 'templates', 'free cv maker']
+            },
+            {
+                id: 'freecodecamp',
+                name: 'freeCodeCamp',
+                description: 'A non-profit organization that helps millions of people learn to code for free. Comprehensive curricula for various technologies.',
+                link: 'https://www.freecodecamp.org/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['coding education', 'learn to code', 'free courses', 'programming', 'web development', 'free learning']
+            },
+            {
+                id: 'khan-academy',
+                name: 'Khan Academy',
+                description: 'A non-profit educational organization providing free, world-class education for anyone, anywhere, across many subjects. Wide range of topics.',
+                link: 'https://www.khanacademy.org/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['online education', 'free learning', 'academic resources', 'e-learning', 'math', 'science']
+            },
+            {
+                id: 'coursera-free-courses',
+                name: 'Coursera (Free Courses)',
+                description: 'Offers free courses and specializations from top universities and companies worldwide. Look for "Audit" option for free access.',
+                link: 'https://www.coursera.org/courses?query=free',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['online courses', 'e-learning', 'free education', 'university courses', 'mooc']
+            },
+            {
+                id: 'edx-free-courses',
+                name: 'edX (Free Courses)',
+                description: 'Provides free access to university-level courses in a wide range of disciplines from leading institutions. Audit track available.',
+                link: 'https://www.edx.org/free-online-courses',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['online courses', 'e-learning', 'free education', 'university courses', 'mooc']
+            },
+            {
+                id: 'google-fonts',
+                name: 'Google Fonts',
+                description: 'A library of over 1000 free licensed font families. Essential for web design and typography.',
+                link: 'https://fonts.google.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['fonts', 'web design', 'typography', 'free resources']
+            },
+            {
+                id: 'unsplash',
+                name: 'Unsplash',
+                description: 'Free stock photos and images for commercial and personal use. High-quality, curated collection.',
+                link: 'https://unsplash.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['stock photos', 'free images', 'photography', 'design resources']
+            },
+            {
+                id: 'pexels',
+                name: 'Pexels',
+                description: 'Free stock photos and videos shared by talented creators. Great for websites, presentations, and social media.',
+                link: 'https://www.pexels.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['stock photos', 'free videos', 'images', 'design resources']
+            },
+            {
+                id: 'iconscout-free',
+                name: 'Iconscout (Free Icons/Illustrations)',
+                description: 'Offers free icons, illustrations, and stock photos. Look for free packs and daily freebies.',
+                link: 'https://iconscout.com/freebies',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['icons', 'illustrations', 'design resources', 'free icons', 'svg']
+            },
+            {
+                id: 'remove-bg-free',
+                name: 'Remove.bg (Free tier)',
+                description: 'Automatically removes the background from images in seconds. Free for personal use with limitations.',
+                link: 'https://www.remove.bg/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['background remover', 'image editor', 'free tool', 'photo editing']
+            },
+            {
+                id: 'online-image-compressor',
+                name: 'Online Image Compressor',
+                description: 'Free tool to compress images (JPG, PNG, GIF, SVG) to reduce file size without losing quality. Faster website loading.',
+                link: 'https://compressjpeg.com/', // Example
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['image optimizer', 'compress image', 'free tool', 'web optimization']
+            },
+            {
+                id: 'convertio-free',
+                name: 'Convertio (Free File Converter)',
+                description: 'Free online file converter supporting over 3700 different conversions between various file types (documents, audio, video, images).',
+                link: 'https://convertio.co/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['file converter', 'audio converter', 'video converter', 'image converter', 'free tool']
+            },
+            {
+                id: 'smallseotools-free',
+                name: 'Small SEO Tools (Free)',
+                description: 'A suite of free SEO and content tools including plagiarism checker, grammar checker, paraphrasing tool, etc.',
+                link: 'https://smallseotools.com/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['seo tools', 'plagiarism checker', 'grammar checker', 'paraphraser', 'free seo']
+            },
+            {
+                id: 'gtmetrix-free',
+                name: 'GTmetrix (Free Tier)',
+                description: 'Analyzes your page speed performance and provides recommendations to optimize your website. Free for basic reports.',
+                link: 'https://gtmetrix.com/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['website speed test', 'performance optimization', 'seo', 'free tool']
+            },
+            {
+                id: 'pagespeed-insights',
+                name: 'Google PageSpeed Insights',
+                description: 'Google\'s free tool to analyze content of a web page, then generates suggestions to make that page faster.',
+                link: 'https://developers.google.com/speed/pagespeed/insights/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['website speed test', 'performance optimization', 'google', 'seo', 'free tool']
+            },
+            {
+                id: 'hotjar-free',
+                name: 'Hotjar (Free Basic)',
+                description: 'All-in-one analysis and feedback tool that helps you understand your users. Free for basic website tracking (up to 35 daily sessions).',
+                link: 'https://www.hotjar.com/pricing/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['user behavior', 'heatmaps', 'session recording', 'feedback forms', 'free analytics']
+            },
+            {
+                id: 'google-analytics',
+                name: 'Google Analytics (GA4)',
+                description: 'Free web analytics service that tracks and reports website traffic. Essential for understanding user engagement.',
+                link: 'https://analytics.google.com/analytics/web/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['web analytics', 'website traffic', 'google', 'seo', 'free analytics']
+            },
+
+
+            // Utility Tools - PPT Generator
+            {
+                id: 'plus-ai',
+                name: 'Plus AI',
+                description: 'An AI tool for Google Slides and PowerPoint that generates full presentations or single slides from text.',
+                link: 'https://www.plusdocs.com/plus-ai/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['presentation generator', 'powerpoint', 'google slides', 'ai powered', 'ppt', 'ai presentation']
+            },
+            {
+                id: 'slidesai',
+                name: 'SlidesAI',
+                description: 'Works inside Google Slides to create presentations from text or prompts, with AI image generation and paraphrasing.',
+                link: 'https://slidesai.io/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['presentation generator', 'google slides', 'ai powered', 'image generation', 'ppt', 'ai presentation']
+            },
+            {
+                id: 'beautiful-ai',
+                name: 'Beautiful.ai',
+                description: 'An AI-powered presentation maker with automated slide layouts and a large library of templates.',
+                link: 'https://www.beautiful.ai/',
+                category: 'utility_tool',
+                type: 'Paid',
+                keywords: ['presentation generator', 'ai powered', 'templates', 'design', 'ppt', 'ai presentation']
+            },
+            {
+                id: 'adobe-express',
+                name: 'Adobe Express',
+                description: 'An all-in-one design app with AI-powered features for creating stunning presentations, social media graphics, and more. Free starter plan.',
+                link: 'https://www.adobe.com/express/create/ai/presentation',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['presentation generator', 'design tool', 'adobe', 'graphic design', 'ppt', 'free design tool']
+            },
+            {
+                id: 'canva-presentations',
+                name: 'Canva Presentations (AI)',
+                description: 'Canva\'s design platform with AI features like Magic Design to quickly create presentations from text or ideas. Free for basic features.',
+                link: 'https://www.canva.com/create/presentations/',
+                category: 'utility_tool',
+                type: 'Freemium',
+                keywords: ['presentation maker', 'design tool', 'ai powered', 'templates', 'visuals', 'free presentation tool']
+            },
+            {
+                id: 'microsoft-powerpoint-copilot',
+                name: 'Microsoft PowerPoint Copilot',
+                description: 'AI assistant for PowerPoint that helps draft outlines, design slides, and summarize content. Integrated into Microsoft 365.',
+                link: 'https://www.microsoft.com/en-us/microsoft-365/microsoft-copilot',
+                category: 'utility_tool',
+                type: 'Paid',
+                keywords: ['powerpoint', 'ai assistant', 'presentation automation', 'microsoft 365', 'ai presentation']
+            },
+            // Additional free domain providers (often combined with hosting, but some offer redirects/basic DNS for free)
+            {
+                id: 'freenom',
+                name: 'Freenom',
+                description: 'Offers free domains (.tk, .ml, .ga, .cf, .gq) for personal projects. Note: reliability can vary.',
+                link: 'https://www.freenom.com/en/index.html',
+                category: 'web_hosting',
+                type: 'Free Domain',
+                keywords: ['free domain', 'domain registration', 'website address', 'personal projects']
+            },
+            {
+                id: 'dot-tk',
+                name: '.tk (part of Freenom)',
+                description: 'A free domain extension, often used for personal and temporary websites. Managed through Freenom.',
+                link: 'https://www.dot.tk/',
+                category: 'web_hosting',
+                type: 'Free Domain',
+                keywords: ['free domain', 'domain extension', 'dot tk']
+            },
+            // Adding free DNS management providers as a utility for domain management
+            {
+                id: 'cloudflare-dns',
+                name: 'Cloudflare (Free DNS)',
+                description: 'Provides free DNS management, CDN, and basic DDoS protection for any website. Speeds up and secures your site.',
+                link: 'https://www.cloudflare.com/dns/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['dns management', 'cdn', 'security', 'website performance', 'free dns']
+            },
+            {
+                id: 'freedns-afraid',
+                name: 'FreeDNS (Afraid.org)',
+                description: 'Offers free DNS hosting and a large number of free subdomains to use. Reliable for custom domains or subdomains.',
+                link: 'https://freedns.afraid.org/',
+                category: 'utility_tool',
+                type: 'Free',
+                keywords: ['free dns', 'free subdomain', 'domain management', 'dns hosting']
+            }
+        ];
+
+        // Helper function to define categories with titles and icons
+        const categoriesConfig = {
+            ai_tool: { title: "Cutting-Edge AI Tools & Generators", icon: `
+                <svg class="w-10 h-10 mr-4 text-blue-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9.25 17L9.25 19L9.75 19L9.75 17ZM14.25 17L14.75 17L14.75 19L14.25 19L14.25 17ZM12 4V2M12 22V20M4.93 4.93L3.51 3.51M19.07 19.07L20.49 20.49M3.51 20.49L4.93 19.07M20.49 3.51L19.07 4.93M2 12H4M20 12H22"></path>
+                </svg>`
+            },
+            ai_tester: { title: "Robust AI Testing & QA Platforms", icon: `
+                <svg class="w-10 h-10 mr-4 text-purple-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.944 12c.046 2.054.307 4.077.78 6.059L21.5 14.5l-2.023-2.023a12.001 12.001 0 00-.78-6.059z"></path>
+                </svg>`
+            },
+            it_resource: { title: "Essential Cloud Providers", icon: `
+                <svg class="w-10 h-10 mr-4 text-teal-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7-8h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2z"></path>
+                </svg>`
+            },
+            web_hosting: { title: "Reliable Website Hosting & Domain Solutions", icon: `
+                <svg class="w-10 h-10 mr-4 text-orange-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 9.75L12 12.75L16.5 9.75M7.5 14.25L12 17.25L16.5 14.25"></path>
+                </svg>`
+            },
+            utility_tool: { title: "Powerful Utility & Productivity Tools", icon: `
+                <svg class="w-10 h-10 mr-4 text-green-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                </svg>`
+            },
+        };
+
+        let searchQuery = '';
+        let suggestions = [];
+        let showScrollToTop = false;
+        const visibleSections = {}; // Tracks which sections are visible for animation
+
+        // DOM elements references (initialized in DOMContentLoaded)
+        let searchInputEl;
+        let searchButtonEl;
+        let clearSearchButtonEl;
+        let suggestionsContainerEl;
+        let contentSectionsContainerEl;
+        let noResultsMessageEl;
+        let noResultsTextEl;
+
+        // Function to initialize DOM element references after HTML is loaded
+        function getDOMElements() {
+            searchInputEl = document.getElementById('search-input');
+            searchButtonEl = document.getElementById('search-button');
+            clearSearchButtonEl = document.getElementById('clear-search-button');
+            suggestionsContainerEl = document.getElementById('suggestions-container');
+            contentSectionsContainerEl = document.getElementById('content-sections-container');
+            noResultsMessageEl = document.getElementById('no-results-message');
+            noResultsTextEl = document.getElementById('no-results-text');
+        }
+
+        // --- Core Rendering Functions ---
+
+        /**
+         * Renders the main content sections (categories and items) based on the current searchQuery.
+         * This function should be called when the search filter needs to be applied,
+         * typically on search button click, Enter key, or suggestion click.
+         */
+        function renderContentSections() {
+            const lowerCaseQuery = searchQuery.toLowerCase();
+            const filteredItems = allItems.filter(item => {
+                const nameMatch = item.name && item.name.toLowerCase().includes(lowerCaseQuery);
+                const descriptionMatch = item.description && item.description.toLowerCase().includes(lowerCaseQuery);
+                const keywordsMatch = item.keywords && Array.isArray(item.keywords) && item.keywords.some(keyword => typeof keyword === 'string' && keyword.toLowerCase().includes(lowerCaseQuery));
+                const typeMatch = item.type && item.type.toLowerCase().includes(lowerCaseQuery);
+                return nameMatch || descriptionMatch || keywordsMatch || typeMatch;
+            });
+
+            // Group filtered items by category for display
+            const groupedItems = {};
+            // Initialize all categories, even if empty, to maintain order
+            Object.keys(categoriesConfig).forEach(catKey => {
+                groupedItems[catKey] = [];
+            });
+            filteredItems.forEach(item => {
+                if (groupedItems[item.category]) { // Ensure category exists in config
+                    groupedItems[item.category].push(item);
+                }
+            });
+
+            let contentHtml = '';
+            let hasVisibleContent = false;
+
+            Object.keys(categoriesConfig).forEach(catKey => {
+                const itemsInCategory = groupedItems[catKey];
+                if (itemsInCategory && itemsInCategory.length > 0) {
+                    hasVisibleContent = true;
+                    // Apply initial animation state based on whether it's already visible
+                    const initialClass = visibleSections[catKey] ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-98';
+
+                    contentHtml += `
+                        <section
+                            id="${catKey}"
+                            class="mb-16 p-8 bg-gray-800 rounded-2xl shadow-xl border border-gray-700 transform transition-all duration-1000 ease-out ${initialClass}"
+                        >
+                            <h2 class="text-4xl font-bold text-white mb-10 flex items-center justify-center sm:justify-start text-center sm:text-left">
+                                ${categoriesConfig[catKey].icon}
+                                ${categoriesConfig[catKey].title}
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                                ${itemsInCategory.map(item => `
+                                    <a
+                                        href="${item.link}"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        class="block bg-gray-700 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-600 hover:border-blue-500 group"
+                                    >
+                                        <h3 class="text-2xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">${item.name}</h3>
+                                        <p class="text-gray-300 text-base mb-4 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">${item.description}</p>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full ${
+                                                item.type === 'Free' ? 'bg-green-500/30 text-green-300' :
+                                                item.type === 'Paid' ? 'bg-red-500/30 text-red-300' :
+                                                item.type === 'Freemium' ? 'bg-yellow-500/30 text-yellow-300' :
+                                                item.type === 'Cloud Provider' ? 'bg-teal-500/30 text-teal-300' :
+                                                item.type === 'Included in Shopify' ? 'bg-indigo-500/30 text-indigo-300' :
+                                                item.type === 'Research/Experimental' ? 'bg-gray-500/30 text-gray-300' :
+                                                item.type === 'Research/Paid' ? 'bg-gray-600/30 text-gray-300' :
+                                                item.type === 'Commercial' ? 'bg-orange-500/30 text-orange-300' :
+                                                item.type === 'Research/Historical' ? 'bg-purple-500/30 text-purple-300' :
+                                                item.type === 'Free/Legacy' ? 'bg-gray-400/30 text-gray-200' :
+                                                item.type === 'Free Domain' ? 'bg-indigo-400/30 text-indigo-200' : // New Free Domain type styling
+                                                'bg-blue-500/30 text-blue-300' // Default if none matches
+                                            } backdrop-blur-sm">
+                                                ${item.type}
+                                            </span>
+                                            <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-gray-600/50 text-gray-300 backdrop-blur-sm">
+                                                ${categoriesConfig[item.category].title.split(' ')[0]}
+                                            </span>
+                                        </div>
+                                    </a>
+                                `).join('')}
+                            </div>
+                        </section>
+                    `;
+                }
+            });
+
+            contentSectionsContainerEl.innerHTML = contentHtml;
+
+            // Show/hide no results message
+            if (!hasVisibleContent && searchQuery) {
+                noResultsMessageEl.classList.remove('hidden');
+                noResultsTextEl.textContent = `No results found for "${searchQuery}". Please try a different query or clear the search.`;
+            } else {
+                noResultsMessageEl.classList.add('hidden');
+            }
+
+            // Re-setup observer for new sections as content has changed
+            setupIntersectionObserver();
+        }
+
+        /**
+         * Updates the search input field's value, renders search suggestions,
+         * and controls the visibility of the clear search button.
+         * This runs on every input change.
+         */
+        function updateSearchInputAndSuggestions() {
+            if (!searchInputEl) return;
+
+            // Update the actual input element's value
+            searchInputEl.value = searchQuery;
+
+            // Manage suggestions container visibility and content
+            if (suggestions.length > 0 && searchQuery.length > 0) {
+                suggestionsContainerEl.classList.remove('hidden');
+                suggestionsContainerEl.innerHTML = suggestions.map((s, index) => `
+                    <div
+                        class="p-3 text-lg text-gray-200 cursor-pointer hover:bg-gray-600 transition-colors duration-200 last:rounded-b-lg suggestion-item"
+                        data-suggestion="${s}"
+                    >
+                        ${s}
+                    </div>
+                `).join('');
+            } else {
+                suggestionsContainerEl.classList.add('hidden');
+                suggestionsContainerEl.innerHTML = '';
+            }
+
+            // Manage clear search button visibility
+            if (searchQuery.length > 0) {
+                clearSearchButtonEl.classList.remove('hidden');
+            } else {
+                clearSearchButtonEl.classList.add('hidden');
+            }
+        }
+
+        // --- Event Handlers ---
+
+        /**
+         * Handles input changes in the search bar.
+         * Triggers suggestion generation and updates the search input UI.
+         */
+        function handleSearchChange(event) {
+            searchQuery = event.target.value;
+            generateSuggestions();
+            updateSearchInputAndSuggestions(); // Only update search bar and suggestions here
+        }
+
+        /**
+         * Generates relevant search suggestions based on the current query.
+         * Searches across name, description, keywords, and type of all items.
+         */
+        function generateSuggestions() {
+            if (searchQuery.length > 1) {
+                const lowerCaseQuery = searchQuery.toLowerCase();
+                const matchingSuggestions = new Set(); // Use a Set to avoid duplicate suggestions
+
+                allItems.forEach(item => {
+                    if (item.name && item.name.toLowerCase().includes(lowerCaseQuery)) {
+                        matchingSuggestions.add(item.name);
+                    }
+                    if (item.description && item.description.toLowerCase().includes(lowerCaseQuery)) {
+                        // Extract relevant words from description if it contains the query
+                        const words = item.description.toLowerCase().split(/\s+|[.,;!?()]|[-_]/).filter(Boolean); // Split by common delimiters
+                        words.forEach(word => {
+                            if (word.includes(lowerCaseQuery)) {
+                                matchingSuggestions.add(word);
+                            }
+                        });
+                    }
+                    if (item.keywords && Array.isArray(item.keywords)) {
+                        item.keywords.forEach(keyword => {
+                            if (typeof keyword === 'string' && keyword.toLowerCase().includes(lowerCaseQuery)) {
+                                matchingSuggestions.add(keyword);
+                            }
+                        });
+                    }
+                    if (item.type && item.type.toLowerCase().includes(lowerCaseQuery)) {
+                        matchingSuggestions.add(item.type);
+                    }
+                });
+                // Sort suggestions alphabetically and take the first 8
+                suggestions = Array.from(matchingSuggestions).sort().slice(0, 8);
+            } else {
+                suggestions = []; // Clear suggestions if query is too short
+            }
+        }
+
+        /**
+         * Handles clicks on a search suggestion.
+         * Updates the search query, clears suggestions, and triggers a full content re-render.
+         */
+        function handleSuggestionClick(event) {
+            const suggestion = event.target.dataset.suggestion;
+            if (suggestion) {
+                searchQuery = suggestion;
+                suggestions = []; // Clear suggestions after selection
+                updateSearchInputAndSuggestions(); // Update input field and hide suggestions
+                renderContentSections(); // Perform search based on suggestion
+                searchInputEl.focus(); // Keep focus on search input for potential further edits
+            }
+        }
+
+        /**
+         * Handles explicit clicks on the "Search" button.
+         * Triggers a full content re-render based on the current search query.
+         */
+        function handleSearchButtonClick(event) {
+            event.preventDefault(); // Prevent default form submission behavior (page reload)
+            renderContentSections(); // Explicitly perform search
+            suggestions = []; // Clear suggestions after explicit search
+            updateSearchInputAndSuggestions(); // Update UI
+        }
+
+        /**
+         * Handles clicks on the "Clear Search" button.
+         * Resets the search query, clears suggestions, and re-renders all content.
+         */
+        function handleClearSearch() {
+            searchQuery = '';
+            suggestions = [];
+            updateSearchInputAndSuggestions(); // Clear input field and hide clear button
+            renderContentSections(); // Show all content again
+            searchInputEl.focus(); // Return focus to search bar
+        }
+
+        /**
+         * Manages the visibility and behavior of the "Scroll to Top" button.
+         * Appends/removes the button from the DOM as needed.
+         */
+        function updateScrollToTopButton() {
+            const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+            const newShowScrollToTop = window.scrollY > 300; // Show button if scrolled more than 300px
+
+            if (newShowScrollToTop && !showScrollToTop) {
+                // Button should be shown, and currently it's hidden
+                const btn = document.createElement('button');
+                btn.id = 'scroll-to-top-btn';
+                btn.className = 'fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition-all duration-300 transform hover:scale-110 active:scale-90 z-50 animate-bounce-in';
+                btn.setAttribute('aria-label', 'Scroll to top');
+                btn.innerHTML = `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>`;
+                document.body.appendChild(btn);
+                btn.addEventListener('click', scrollToTop);
+                showScrollToTop = true; // Update state
+            } else if (!newShowScrollToTop && showScrollToTop) {
+                // Button should be hidden, and currently it's visible
+                if (scrollToTopBtn) {
+                    scrollToTopBtn.removeEventListener('click', scrollToTop);
+                    scrollToTopBtn.remove();
+                }
+                showScrollToTop = false; // Update state
+            }
+        }
+
+        /**
+         * Smoothly scrolls the window to the top of the page.
+         */
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth',
+            });
+        }
+
+        // --- Intersection Observer Setup ---
+        let observer; // Holds the Intersection Observer instance
+
+        /**
+         * Sets up the Intersection Observer to animate sections as they come into view.
+         * Disconnects any existing observer before creating a new one.
+         */
+        function setupIntersectionObserver() {
+            if (observer) {
+                observer.disconnect(); // Prevent multiple observers if renderContentSections is called multiple times
+            }
+
+            const observerOptions = {
+                root: null, // Observe against the viewport
+                rootMargin: '0px',
+                threshold: 0.1, // Trigger when 10% of the section is visible
+            };
+
+            observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const sectionId = entry.target.id;
+                    if (entry.isIntersecting) {
+                        // Only animate if it hasn't been animated yet for this session
+                        if (!visibleSections[sectionId]) {
+                            visibleSections[sectionId] = true;
+                            // Apply animation classes
+                            entry.target.classList.add('opacity-100', 'translate-y-0', 'scale-100');
+                            entry.target.classList.remove('opacity-0', 'translate-y-16', 'scale-98');
+                        }
+                    }
+                    // Optional: If you want sections to re-animate when scrolled out and back into view,
+                    // you would add an else block here to remove the visible classes.
+                    // For a professional UX, keeping them visible once revealed is usually preferred.
+                });
+            }, observerOptions);
+
+            // Observe each section within the content sections container
+            document.querySelectorAll('#content-sections-container section').forEach(section => {
+                observer.observe(section);
+            });
+        }
+
+        // --- Global Event Listeners ---
+        /**
+         * Adds global event listeners for keyboard shortcuts (Esc) and outside clicks.
+         * These listeners are added once on DOMContentLoaded.
+         */
+        function addGlobalEventListeners() {
+            // Close suggestions on Esc key press
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    if (suggestions.length > 0) {
+                        suggestions = []; // Clear suggestions
+                        updateSearchInputAndSuggestions(); // Update UI
+                    }
+                }
+            });
+
+            // Close suggestions on outside click
+            document.addEventListener('click', (event) => {
+                if (suggestionsContainerEl && searchInputEl) {
+                    // Check if the click occurred outside the search input, suggestions container, and buttons
+                    const isClickInsideSearchArea = searchInputEl.contains(event.target) ||
+                                                   suggestionsContainerEl.contains(event.target) ||
+                                                   (searchButtonEl && searchButtonEl.contains(event.target)) ||
+                                                   (clearSearchButtonEl && clearSearchButtonEl.contains(event.target));
+                    if (!isClickInsideSearchArea && suggestions.length > 0) {
+                        suggestions = []; // Clear suggestions
+                        updateSearchInputAndSuggestions(); // Update UI
+                    }
+                }
+            });
+
+            // Listen for scroll events to show/hide the "Scroll to Top" button
+            window.addEventListener('scroll', updateScrollToTopButton);
+        }
+
+        // --- Initial Load ---
+        /**
+         * Executes when the DOM is fully loaded.
+         * Initializes elements, renders initial content, and sets up event listeners.
+         */
+        document.addEventListener('DOMContentLoaded', () => {
+            getDOMElements(); // Get references to DOM elements
+            renderContentSections(); // Render initial content (all items displayed by default)
+            updateSearchInputAndSuggestions(); // Initialize search input and clear button state
+            addGlobalEventListeners(); // Add global listeners for Esc, outside clicks, scroll
+
+            // Add specific event listeners that are attached directly to elements
+            if (searchInputEl) {
+                searchInputEl.addEventListener('input', handleSearchChange);
+                // Listen for Enter key press on search input to trigger search
+                searchInputEl.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault(); // Prevent form submission (page reload)
+                        handleSearchButtonClick(event); // Trigger search
+                    }
+                });
+            }
+            if (searchButtonEl) {
+                searchButtonEl.addEventListener('click', handleSearchButtonClick);
+            }
+            if (clearSearchButtonEl) {
+                clearSearchButtonEl.addEventListener('click', handleClearSearch);
+            }
+            // The suggestionsContainerEl uses event delegation via handleSuggestionClick,
+            // so no need to iterate over individual suggestion items.
+            if (suggestionsContainerEl) {
+                 suggestionsContainerEl.addEventListener('click', handleSuggestionClick);
+            }
+
+            // Set current year dynamically in the footer
+            const currentYearSpan = document.getElementById('current-year');
+            if (currentYearSpan) {
+                currentYearSpan.textContent = new Date().getFullYear();
+            }
+        });
+    </script>
+</body>
+</html>
+
+
