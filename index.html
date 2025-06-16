@@ -41,7 +41,7 @@
         @keyframes bounceIn {
             0% { transform: scale(0.3); opacity: 0; }
             50% { transform: scale(1.05); opacity: 1; }
-            70% { transform { transform: scale(0.9); }
+            70% { transform: scale(0.9); }
             100% { transform: scale(1); }
         }
 
@@ -51,6 +51,47 @@
         .animate-fade-in-down-quick { animation: fadeInDown 0.3s ease-out forwards; }
         .animate-pulse-slight { animation: pulseSlight 2s ease-in-out infinite; }
         .animate-bounce-in { animation: bounceIn 0.5s ease-out; }
+
+        /* Custom category tag colors */
+        .tag-ai-tool { background-color: #6366f1; color: #e0e7ff; }
+        .tag-productivity { background-color: #f59e0b; color: #fffbeb; }
+        .tag-development { background-color: #10b981; color: #ecfdf5; }
+        .tag-design { background-color: #ef4444; color: #fee2e2; }
+        .tag-data-science { background-color: #8b5cf6; color: #f3ebff; }
+        .tag-education { background-color: #0ea5e9; color: #e0f2fe; }
+        .tag-utility { background-color: #f97316; color: #fff7ed; }
+        .tag-web-hosting { background-color: #06b6d4; color: #ecfeff; }
+        .tag-business-management { background-color: #22c55e; color: #f0fdf4; } /* New category color */
+
+        /* Type tag colors (re-using existing or adding new where distinct) */
+        .type-free { background-color: #22c55e; color: #f0fdf4; border: 1px solid #dcfce7; }
+        .type-freemium { background-color: #facc15; color: #854d0e; border: 1px solid #fef9c3; }
+        .type-paid { background-color: #ef4444; color: #fee2e2; border: 1px solid #fee2e2; }
+        .type-open-source { background-color: #3b82f6; color: #eff6ff; border: 1px solid #dbeafe; }
+        .type-free-domain { background-color: #a855f7; color: #f3e8ff; border: 1px solid #e9d5ff; }
+        .type-free-course { background-color: #ec4899; color: #fdf2f8; border: 1px solid #fce7f3; }
+        .type-free-api { background-color: #14b8a6; color: #ecfdf5; border: 1px solid #ccfbf1; }
+        .type-community { background-color: #f472b6; color: #fdf2f8; border: 1px solid #fbcfe8; }
+        .type-free-book { background-color: #fbbf24; color: #fffbeb; border: 1px solid #fef3c7; }
+        .type-free-research { background-color: #38bdf8; color: #eff6ff; border: 1px solid #e0f2fe; }
+        .type-paid-research { background-color: #eab308; color: #fffbeb; border: 1px solid #fef3c7; }
+        .type-freemium-research { background-color: #84cc16; color: #f7fee7; border: 1px solid #e0f2f3; }
+        .type-free-tool { background-color: #22d3ee; color: #ecfdf5; border: 1px solid #e0f8f9; }
+        .type-research-experimental { background-color: #6b7280; color: #f9fafb; border: 1px solid #e5e7eb; }
+        .type-research-paid { background-color: #4b5563; color: #f9fafb; border: 1px solid #d1d5db; }
+        .type-commercial { background-color: #f97316; color: #fff7ed; border: 1px solid #fed7aa; }
+        .type-free-legacy { background-color: #9ca3af; color: #f3f4f6; border: 1px solid #e5e7eb; }
+        .type-free-hosting { background-color: #4ade80; color: #f0fdf4; border: 1px solid #dcfce7; } /* Specific for hosting */
+        .type-ai-accounting { background-color: #00796B; color: #E0F2F1; } /* Specific AI type for business */
+        .type-ai-marketing { background-color: #FF8A65; color: #FFF3E0; } /* Specific AI type for business */
+        .type-ai-crm { background-color: #7E57C2; color: #EDE7F6; } /* Specific AI type for business */
+        .type-ai-project-mgmt { background-color: #4CAF50; color: #E8F5E9; } /* Specific AI type for business */
+        .type-ai-email-mgmt { background-color: #2196F3; color: #E3F2FD; } /* Specific AI type for business */
+        .type-ai-sales { background-color: #D32F2F; color: #FFEBEE; } /* Specific AI type for business */
+        .type-ai-hr { background-color: #FFC107; color: #FFF8E1; } /* Specific AI type for business */
+        .type-workflow-automation { background-color: #2ecc71; color: #ecfdf5; }
+        .type-rpa { background-color: #3498db; color: #ecfdf5; }
+
     </style>
 </head>
 <body class="min-h-screen bg-gradient-to-br from-gray-900 via-zinc-950 to-black p-8 font-sans text-gray-100 antialiased relative">
@@ -65,10 +106,10 @@
                 <span class="ml-4 inline-block transform rotate-[-10deg] animate-pulse-slight">🚀</span>
             </h1>
             <p class="text-2xl text-gray-300 font-light max-w-4xl mx-auto animate-fade-in delay-200">
-                Dive into a vast and growing collection of the best **AI tools, utility apps, cloud platforms, and web hosting solutions!** Discover free and freemium resources for content creation, coding, design, productivity, research, and much more.
+                Welcome to your ultimate compass for the digital world! Explore a curated collection of powerful AI tools, essential utility apps, and cutting-edge platforms. Discover <span class="font-bold text-green-300">free and freemium resources</span> for content creation, coding, design, business management, research, and much more.
             </p>
             <p class="text-xl text-gray-400 font-normal mt-4 max-w-3xl mx-auto animate-fade-in delay-300">
-                Whether you're a student, developer, or enthusiast, find exactly what you need to innovate, learn, and grow.
+                Whether you're a student, developer, business owner, or enthusiast, find exactly what you need to innovate, learn, and grow.
             </p>
         </header>
 
@@ -78,7 +119,7 @@
                 <input
                     id="search-input"
                     type="text"
-                    placeholder="Search for AI tools, hosting, testing, cloud, PDF, PPT..."
+                    placeholder="Search AI tools, business management, productivity, coding, design, free resources..."
                     class="flex-1 p-3 px-6 bg-transparent text-white placeholder-gray-400 focus:outline-none text-lg rounded-full"
                     value=""
                 />
@@ -102,6 +143,17 @@
                 <!-- Suggestions will be dynamically inserted here -->
             </div>
         </div>
+
+        <!-- Featured Free Tools Section (Visible when search is empty) -->
+        <section id="featured-free-tools" class="mb-8 p-8 bg-gray-800 rounded-2xl shadow-xl border border-gray-700 transform transition-all duration-1000 ease-out animate-fade-in-up">
+            <h2 class="text-4xl font-bold text-white mb-10 flex items-center justify-center sm:justify-start text-center sm:text-left">
+                <svg class="w-10 h-10 mr-4 text-green-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                Popular Free Resources & Tools
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="featured-tools-grid">
+                <!-- Featured tools will be dynamically inserted here by JavaScript -->
+            </div>
+        </section>
 
         <!-- Content Sections Container -->
         <div id="content-sections-container">
@@ -135,13 +187,13 @@
     <script>
         // Data for all tools and resources
         const allItems = [
-            // AI Tools - General Purpose / LLMs
+            // --- AI Tools - General Purpose / LLMs ---
             {
                 id: 'chatgpt',
                 name: 'ChatGPT',
                 description: 'A powerful conversational AI for content creation, coding assistance, and general queries.',
                 link: 'https://openai.com/blog/chatgpt/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['conversational', 'text generation', 'chatbot', 'coding', 'content creation', 'llm', 'openai']
             },
@@ -150,7 +202,7 @@
                 name: 'Claude',
                 description: 'An advanced AI assistant by Anthropic, focused on helpful, honest, and harmless conversations and content generation.',
                 link: 'https://www.anthropic.com/product/claude',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['conversational', 'text generation', 'chatbot', 'content creation', 'ethical AI', 'llm', 'anthropic']
             },
@@ -159,7 +211,7 @@
                 name: 'Google Gemini',
                 description: 'Google\'s advanced AI model enhancing productivity across Google products, including email drafting and content creation.',
                 link: 'https://gemini.google.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['productivity', 'text generation', 'summarization', 'google', 'llm', 'chatbot']
             },
@@ -168,7 +220,7 @@
                 name: 'Perplexity AI',
                 description: 'An AI-powered answer engine that provides direct answers with sources, excelling in natural language processing.',
                 link: 'https://www.perplexity.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['nlp', 'search engine', 'summarization', 'question answering', 'research', 'citations']
             },
@@ -177,7 +229,7 @@
                 name: 'Jasper AI',
                 description: 'An AI writing assistant for generating high-quality marketing copy, blogs, product descriptions, and more.',
                 link: 'https://www.jasper.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['marketing', 'content creation', 'writing', 'blogging', 'copywriting', 'ai writer']
             },
@@ -186,7 +238,7 @@
                 name: 'RunwayML',
                 description: 'A leading platform for AI-powered video editing and content creation, offering magical tools for filmmakers and artists.',
                 link: 'https://runwayml.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video editing', 'video generation', 'art', 'creative AI', 'film', 'ai video']
             },
@@ -195,25 +247,25 @@
                 name: 'Otter.ai',
                 description: 'AI-powered transcription service that converts voice conversations to text in real-time, great for meetings and interviews.',
                 link: 'https://otter.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['transcription', 'meeting notes', 'voice to text', 'productivity', 'audio to text']
             },
             {
                 id: 'deepseek-llm',
                 name: 'DeepSeek LLM',
-                description: 'Open-source large language models encouraging research and development, fostering collaboration in AI innovation.',
+                description: 'Open-source large language models encouraging research and development, fostering collaboration in AI innovation. Free API available.',
                 link: 'https://deepseek.com/llm/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
-                keywords: ['open-source', 'llm', 'language model', 'development', 'research', 'code']
+                keywords: ['open-source', 'llm', 'language model', 'development', 'research', 'code', 'free api']
             },
             {
                 id: 'flowiseai',
                 name: 'FlowiseAI',
                 description: 'A low-code drag-and-drop UI to build your customized LLM orchestration flow & AI agents.',
                 link: 'https://flowiseai.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['low-code', 'chatbot', 'llm orchestration', 'workflow automation', 'ai builder', 'visual programming']
             },
@@ -222,16 +274,16 @@
                 name: 'Krea.ai',
                 description: 'An AI-powered image generator based on text inputs, offering creative image synthesis capabilities.',
                 link: 'https://www.krea.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['image generation', 'ai art', 'text-to-image', 'creativity', 'ai image']
             },
             {
                 id: 'invideo-ai',
                 name: 'InVideo AI',
-                description: 'AI video creation platform that generates videos from text prompts, with features for script and video editing.',
+                description: 'AI video creation platform that generates videos from text prompts, with features for script and video editing. Offers a free tier.',
                 link: 'https://invideo.io/ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video creation', 'text-to-video', 'editing', 'ai video maker']
             },
@@ -240,26 +292,26 @@
                 name: 'Midjourney',
                 description: 'A leading AI art generator that creates stunning images from text prompts.',
                 link: 'https://www.midjourney.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
-                keywords: ['image generation', 'ai art', 'creative ai', 'text-to-image', 'digital art']
+                keywords: ['image generation', 'ai art', 'creative AI', 'text-to-image', 'digital art']
             },
             {
                 id: 'dall-e',
                 name: 'DALL-E',
                 description: 'OpenAI\'s powerful AI model that generates images from natural language descriptions.',
                 link: 'https://openai.com/dall-e/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['image generation', 'ai art', 'text-to-image', 'openai', 'digital art']
             },
             {
                 id: 'github-copilot',
                 name: 'GitHub Copilot',
-                description: 'An AI pair programmer that suggests code and entire functions in real-time within your editor.',
+                description: 'An AI pair programmer that suggests code and entire functions in real-time within your editor. Free for students and open-source contributors.',
                 link: 'https://github.com/features/copilot',
-                category: 'ai_tool',
-                type: 'Paid',
+                category: 'AI Tools',
+                type: 'Freemium',
                 keywords: ['coding assistant', 'developer tool', 'code generation', 'github', 'ai coding']
             },
             {
@@ -267,7 +319,7 @@
                 name: 'Tabnine',
                 description: 'AI code completion tool that predicts and suggests the next lines of code based on context.',
                 link: 'https://www.tabnine.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['coding assistant', 'code completion', 'developer tool', 'ai code']
             },
@@ -276,7 +328,7 @@
                 name: 'Synthesia',
                 description: 'An AI video generation platform that allows you to create professional videos with AI avatars from text.',
                 link: 'https://www.synthesia.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['video generation', 'ai avatar', 'text-to-video', 'content creation', 'virtual presenter']
             },
@@ -285,16 +337,16 @@
                 name: 'Descript',
                 description: 'An all-in-one audio and video editor that uses AI for transcription, editing by text, and filler word removal.',
                 link: 'https://www.descript.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['audio editing', 'video editing', 'transcription', 'podcast', 'ai editor']
             },
             {
                 id: 'elevenlabs',
                 name: 'ElevenLabs',
-                description: 'AI voice generator for realistic text-to-speech, voice cloning, and audio content creation.',
+                description: 'AI voice generator for realistic text-to-speech, voice cloning, and audio content creation. Offers a free tier.',
                 link: 'https://elevenlabs.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['voice generator', 'text-to-speech', 'voice cloning', 'audio AI', 'content creation', 'ai voice']
             },
@@ -303,7 +355,7 @@
                 name: 'Stable Diffusion',
                 description: 'Open-source deep learning model for generating images from text descriptions.',
                 link: 'https://stability.ai/stable-diffusion',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['image generation', 'open-source', 'ai art', 'text-to-image', 'digital art']
             },
@@ -312,7 +364,7 @@
                 name: 'HeyGen',
                 description: 'AI video generation platform for creating professional videos with AI avatars and realistic voices from text.',
                 link: 'https://www.heygen.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video generation', 'ai avatar', 'text-to-video', 'marketing video', 'ai video']
             },
@@ -321,7 +373,7 @@
                 name: 'Fliki',
                 description: 'Text-to-video and text-to-speech generator, creating videos with AI voices, stock media, and subtitles.',
                 link: 'https://fliki.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['text-to-video', 'text-to-speech', 'video creation', 'ai voice', 'subtitles', 'ai video maker']
             },
@@ -330,34 +382,34 @@
                 name: 'Bardeen AI',
                 description: 'AI automation tool that streamlines workflows by connecting web apps and automating tasks.',
                 link: 'https://www.bardeen.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['automation', 'productivity', 'workflow', 'web automation', 'ai automation']
             },
             {
                 id: 'n8n',
                 name: 'n8n',
-                description: 'Workflow automation tool that connects apps and services, enabling complex integrations and data flows.',
+                description: 'Workflow automation tool that connects apps and services, enabling complex integrations and data flows. Open-source and self-hostable.',
                 link: 'https://n8n.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['automation', 'workflow', 'integration', 'low-code', 'open-source automation']
             },
             {
                 id: 'zapier',
                 name: 'Zapier',
-                description: 'Connects over 5,000 apps to automate tasks and workflows without coding.',
+                description: 'Connects over 5,000 apps to automate tasks and workflows without coding. Integrates AI features for enhanced automation.',
                 link: 'https://zapier.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
-                keywords: ['automation', 'workflow', 'integration', 'no-code', 'app connector']
+                keywords: ['automation', 'workflow', 'integration', 'no-code', 'app connector', 'AI automation']
             },
             {
                 id: 'make.com',
                 name: 'Make (formerly Integromat)',
                 description: 'Visual platform to design, build, and automate anything from tasks to workflows.',
                 link: 'https://www.make.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['automation', 'workflow', 'integration', 'no-code', 'visual builder', 'app connector']
             },
@@ -366,26 +418,26 @@
                 name: 'Adobe Firefly',
                 description: 'Generative AI models within Adobe creative apps for image, text effect, and vector generation.',
                 link: 'https://www.adobe.com/sensei/generative-ai/firefly.html',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
-                keywords: ['image generation', 'text effects', 'design', 'adobe', 'creative ai', 'generative art']
+                keywords: ['image generation', 'text effects', 'design', 'adobe', 'creative AI', 'generative art']
             },
             {
                 id: 'figma-ai-plugins',
                 name: 'Figma AI Plugins',
                 description: 'AI-powered plugins for Figma that assist with design tasks, content generation, and prototyping.',
                 link: 'https://www.figma.com/community/plugins',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
-                keywords: ['design', 'ui/ux', 'prototyping', 'figma', 'creative ai', 'ai design']
+                keywords: ['design', 'ui/ux', 'prototyping', 'figma', 'creative AI', 'ai design']
             },
             {
                 id: 'notion-ai',
                 name: 'Notion AI',
-                description: 'AI assistant integrated into Notion for writing, brainstorming, summarizing, and task automation.',
+                description: 'AI assistant integrated into Notion for writing, brainstorming, summarizing, and task automation. Free tier for basic use.',
                 link: 'https://www.notion.so/product/ai',
-                category: 'ai_tool',
-                type: 'Paid',
+                category: 'AI Tools',
+                type: 'Freemium',
                 keywords: ['productivity', 'writing', 'summarization', 'task management', 'notes', 'ai assistant']
             },
             {
@@ -393,7 +445,7 @@
                 name: 'Coda AI',
                 description: 'AI features built into Coda documents for writing, summarizing, and automating tasks within your docs.',
                 link: 'https://coda.io/product/ai',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['productivity', 'writing', 'summarization', 'document automation', 'no-code', 'ai docs']
             },
@@ -402,7 +454,7 @@
                 name: 'Microsoft Copilot',
                 description: 'AI assistant integrated across Microsoft 365 apps to enhance productivity and creativity.',
                 link: 'https://www.microsoft.com/en-us/microsoft-copilot',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['productivity', 'microsoft 365', 'work automation', 'ai assistant', 'office automation']
             },
@@ -411,7 +463,7 @@
                 name: 'GitHub Copilot Enterprise',
                 description: 'Advanced AI pair programming for enterprise teams, customized with private codebases.',
                 link: 'https://github.com/enterprise/copilot',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['coding assistant', 'enterprise', 'code generation', 'developer tool', 'ai coding']
             },
@@ -420,7 +472,7 @@
                 name: 'AlphaCode',
                 description: 'DeepMind\'s AI system that writes computer programs at a competitive level.',
                 link: 'https://www.deepmind.com/blog/alphacode-an-ai-engineer-achieves-competitive-programming-performance',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Research/Experimental',
                 keywords: ['code generation', 'competitive programming', 'ai research', 'deepmind']
             },
@@ -429,16 +481,16 @@
                 name: 'Adept AI',
                 description: 'AI that can perform complex tasks in software by understanding natural language commands.',
                 link: 'https://www.adept.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Research/Paid',
                 keywords: ['task automation', 'software automation', 'natural language interface', 'ai agent']
             },
             {
                 id: 'replit-ai',
                 name: 'Replit AI',
-                description: 'AI coding assistant integrated into the Replit IDE for code generation, completion, and debugging.',
+                description: 'AI coding assistant integrated into the Replit IDE for code generation, completion, and debugging. Free tier for basic use.',
                 link: 'https://replit.com/ai',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['coding assistant', 'ide', 'code generation', 'developer tool', 'ai coding', 'online ide']
             },
@@ -447,34 +499,34 @@
                 name: 'Cursor IDE',
                 description: 'An AI-first code editor designed to help you write, understand, and debug code faster with integrated AI.',
                 link: 'https://www.cursor.sh/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['code editor', 'coding assistant', 'developer tool', 'debugging', 'ai code editor']
             },
             {
                 id: 'grammarly-go',
                 name: 'GrammarlyGo',
-                description: 'AI writing assistant for grammar, spelling, style, and tone correction across various applications.',
+                description: 'AI writing assistant for grammar, spelling, style, and tone correction across various applications. Free tier available.',
                 link: 'https://www.grammarly.com/go',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['writing assistant', 'grammar check', 'spelling check', 'productivity', 'ai writing']
             },
             {
                 id: 'copy-ai',
                 name: 'Copy.ai',
-                description: 'AI writing tool for generating marketing copy, social media content, blog outlines, and more.',
+                description: 'AI writing tool for generating marketing copy, social media content, blog outlines, and more. Offers a free tier.',
                 link: 'https://www.copy.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['content creation', 'marketing copy', 'social media', 'blogging', 'writing', 'ai writer']
             },
             {
                 id: 'writesonic',
                 name: 'Writesonic',
-                description: 'AI writer for generating high-quality articles, blog posts, ads, and landing pages quickly.',
+                description: 'AI writer for generating high-quality articles, blog posts, ads, and landing pages quickly. Offers a free tier.',
                 link: 'https://writesonic.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['content creation', 'blogging', 'copywriting', 'marketing', 'writing', 'ai writer']
             },
@@ -483,43 +535,43 @@
                 name: 'Anyword',
                 description: 'AI writing assistant optimized for marketing copy that drives conversions, with predictive performance scores.',
                 link: 'https://anyword.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['marketing copy', 'conversion optimization', 'content creation', 'writing', 'ai marketing']
             },
             {
                 id: 'lovo-ai',
                 name: 'LOVO AI',
-                description: 'AI voice generator and text-to-speech platform with a wide range of realistic voices and emotional tones.',
+                description: 'AI voice generator and text-to-speech platform with a wide range of realistic voices and emotional tones. Free trial available.',
                 link: 'https://lovo.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['voice generator', 'text-to-speech', 'ai voice', 'audio creation', 'voice synthesis']
             },
             {
                 id: 'murf-ai',
                 name: 'Murf.ai',
-                description: 'AI voice generator that transforms text into natural-sounding speech with various voices and custom pronunciations.',
+                description: 'AI voice generator that transforms text into natural-sounding speech with various voices and custom pronunciations. Free tier available.',
                 link: 'https://murf.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['voice generator', 'text-to-speech', 'ai voice', 'audio creation', 'voice synthesis']
             },
             {
                 id: 'pictory',
                 name: 'Pictory',
-                description: 'AI video editor that converts text into videos automatically, great for social media content.',
+                description: 'AI video editor that converts text into videos automatically, great for social media content. Free trial available.',
                 link: 'https://pictory.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video editing', 'text-to-video', 'content creation', 'social media', 'ai video']
             },
             {
                 id: 'remove-bg',
                 name: 'Remove.bg',
-                description: 'AI tool to remove image backgrounds automatically and instantly. Perfect for e-commerce and graphic design.',
+                description: 'AI tool to remove image backgrounds automatically and instantly. Perfect for e-commerce and graphic design. Free for basic use.',
                 link: 'https://www.remove.bg/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['image editing', 'background removal', 'photo editing', 'graphic design', 'bg remover', 'free background removal']
             },
@@ -528,7 +580,7 @@
                 name: 'Adobe Photoshop (AI features)',
                 description: 'Professional image editing software with integrated AI features like Generative Fill and Neural Filters.',
                 link: 'https://www.adobe.com/products/photoshop/generative-fill.html',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['image editing', 'generative ai', 'photo editing', 'graphic design', 'ai image editing']
             },
@@ -537,34 +589,34 @@
                 name: 'Midjourney V6',
                 description: 'The latest iteration of Midjourney\'s powerful AI art generator, offering enhanced realism and control.',
                 link: 'https://www.midjourney.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
-                keywords: ['image generation', 'ai art', 'creative ai', 'text-to-image', 'digital art']
+                keywords: ['image generation', 'ai art', 'creative AI', 'text-to-image', 'digital art']
             },
             {
                 id: 'dall-e-3',
                 name: 'DALL-E 3',
-                description: 'OpenAI\'s advanced image generation model, known for understanding nuanced prompts and generating coherent images.',
+                description: 'OpenAI\'s advanced image generation model, known for understanding nuanced prompts and generating coherent images. Integrates with ChatGPT Plus.',
                 link: 'https://openai.com/dall-e-3',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['image generation', 'ai art', 'text-to-image', 'openai', 'digital art']
             },
             {
                 id: 'fireflies-ai',
                 name: 'Fireflies.ai',
-                description: 'AI assistant that records, transcribes, and summarizes your meetings automatically.',
+                description: 'AI assistant that records, transcribes, and summarizes your meetings automatically. Free tier available.',
                 link: 'https://fireflies.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['meeting notes', 'transcription', 'summarization', 'productivity', 'ai assistant', 'meeting recorder']
             },
             {
                 id: 'grain-co',
                 name: 'Grain.co',
-                description: 'Records, transcribes, and clips moments from video meetings for easy sharing and collaboration.',
+                description: 'Records, transcribes, and clips moments from video meetings for easy sharing and collaboration. Free tier available.',
                 link: 'https://grain.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['meeting recorder', 'transcription', 'video clips', 'collaboration', 'ai meeting']
             },
@@ -573,7 +625,7 @@
                 name: 'AI-Writer',
                 description: 'AI writing assistant that generates full articles and blog posts from a headline or keyword.',
                 link: 'https://ai-writer.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['article writing', 'blogging', 'content generation', 'seo content', 'ai writer']
             },
@@ -582,7 +634,7 @@
                 name: 'Surfer SEO (AI features)',
                 description: 'AI-powered content optimization tool for SEO, helping to write and optimize articles for higher rankings.',
                 link: 'https://surferseo.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['seo', 'content optimization', 'article writing', 'keyword research', 'ai seo']
             },
@@ -591,79 +643,79 @@
                 name: 'SEMrush ContentShake AI',
                 description: 'AI writing tool part of SEMrush for generating and optimizing content ideas.',
                 link: 'https://www.semrush.com/features/content-shake-ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['seo', 'content marketing', 'content generation', 'writing', 'ai content']
             },
             {
                 id: 'microsoft-designer',
                 name: 'Microsoft Designer',
-                description: 'AI-powered design app for creating stunning visuals, social media posts, invitations, and more.',
+                description: 'AI-powered design app for creating stunning visuals, social media posts, invitations, and more. Free to use for basic designs.',
                 link: 'https://designer.microsoft.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['graphic design', 'image generation', 'social media design', 'microsoft', 'ai design']
             },
             {
                 id: 'canva-magic-design',
                 name: 'Canva Magic Design',
-                description: 'AI features within Canva for instantly generating designs from text prompts, images, or ideas.',
+                description: 'AI features within Canva for instantly generating designs from text prompts, images, or ideas. Free tier available.',
                 link: 'https://www.canva.com/magic-studio/magic-design/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['graphic design', 'template design', 'ai powered', 'visual content', 'ai design']
             },
             {
                 id: 'tome-ai',
                 name: 'Tome AI',
-                description: 'AI-powered storytelling format that helps you create engaging presentations and documents easily.',
+                description: 'AI-powered storytelling format that helps you create engaging presentations and documents easily. Free tier available.',
                 link: 'https://tome.app/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['presentation', 'storytelling', 'document creation', 'ai powered', 'ai presentation']
             },
             {
                 id: 'gamma-app',
                 name: 'Gamma App',
-                description: 'AI-powered presentation tool that allows you to create beautiful and interactive presentations and documents in minutes.',
+                description: 'AI-powered presentation tool that allows you to create beautiful and interactive presentations and documents in minutes. Free tier available.',
                 link: 'https://gamma.app/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['presentation', 'document creation', 'ai powered', 'interactive content', 'ai presentation']
             },
             {
                 id: 'elai-io',
                 name: 'Elai.io',
-                description: 'AI video generation platform for creating videos with photorealistic avatars and natural-sounding voices.',
+                description: 'AI video generation platform for creating videos with photorealistic avatars and natural-sounding voices. Free trial available.',
                 link: 'https://elai.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video generation', 'ai avatar', 'text-to-video', 'corporate video', 'ai video']
             },
             {
                 id: 'deepmotion',
                 name: 'DeepMotion',
-                description: 'AI motion capture for creating 3D animations from 2D videos automatically.',
+                description: 'AI motion capture for creating 3D animations from 2D videos automatically. Free tier available.',
                 link: 'https://www.deepmotion.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
-                keywords: ['3d animation', 'motion capture', 'video to 3d', 'creative ai', 'ai animation']
+                keywords: ['3d animation', 'motion capture', 'video to 3d', 'creative AI', 'ai animation']
             },
             {
                 id: 'lumen5',
                 name: 'Lumen5',
-                description: 'AI video maker that transforms text and blog posts into engaging video content.',
+                description: 'AI video maker that transforms text and blog posts into engaging video content. Free tier available.',
                 link: 'https://lumen5.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video creation', 'text-to-video', 'marketing video', 'social media video', 'ai video maker']
             },
             {
                 id: 'replika',
                 name: 'Replika',
-                description: 'An AI companion that learns from your conversations to become a friend, mentor, or romantic partner.',
+                description: 'An AI companion that learns from your conversations to become a friend, mentor, or romantic partner. Free tier available.',
                 link: 'https://replika.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai companion', 'chatbot', 'mental wellness', 'personal assistant', 'emotional ai']
             },
@@ -672,7 +724,7 @@
                 name: 'You.com',
                 description: 'An AI-powered search engine that summarizes results from the web and provides instant answers.',
                 link: 'https://you.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['search engine', 'summarization', 'ai search', 'privacy', 'search assistant']
             },
@@ -681,7 +733,7 @@
                 name: 'Hugging Face Hub',
                 description: 'A platform for sharing and discovering pre-trained machine learning models, datasets, and demos. A vast open-source ML community.',
                 link: 'https://huggingface.co/models',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['machine learning models', 'nlp models', 'open-source ai', 'community', 'ai models', 'datasets']
             },
@@ -690,7 +742,7 @@
                 name: 'Streamlit',
                 description: 'Open-source Python framework for turning data scripts into shareable web apps easily. Great for AI/ML demos.',
                 link: 'https://streamlit.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['python web apps', 'data science apps', 'dashboard', 'open-source', 'ml demos', 'app development']
             },
@@ -699,7 +751,7 @@
                 name: 'Gradio',
                 description: 'Open-source Python library for quickly creating customizable UI components for your ML models. Ideal for quick demos.',
                 link: 'https://gradio.app/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['machine learning ui', 'python ui', 'demo creation', 'open-source', 'ai demos']
             },
@@ -708,7 +760,7 @@
                 name: 'TensorFlow/Keras',
                 description: 'Open-source machine learning framework for building and training neural networks. Widely used for deep learning.',
                 link: 'https://www.tensorflow.org/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['machine learning framework', 'deep learning', 'neural networks', 'open-source', 'ai development', 'python ml']
             },
@@ -717,7 +769,7 @@
                 name: 'PyTorch',
                 description: 'Open-source machine learning framework developed by Facebook for deep learning applications. Known for flexibility.',
                 link: 'https://pytorch.org/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['machine learning framework', 'deep learning', 'neural networks', 'open-source', 'ai development', 'python ml']
             },
@@ -726,16 +778,16 @@
                 name: 'Scikit-learn',
                 description: 'Free machine learning library for Python, offering various classification, regression, and clustering algorithms. Essential for data science.',
                 link: 'https://scikit-learn.org/stable/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['machine learning library', 'python', 'data science', 'algorithms', 'ml library']
             },
             {
                 id: 'gamma-ai',
                 name: 'Gamma AI',
-                description: 'An AI-powered document, presentation, and webpage builder that helps you create engaging content quickly.',
+                description: 'An AI-powered document, presentation, and webpage builder that helps you create engaging content quickly. Free tier available.',
                 link: 'https://gamma.app/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['presentation', 'document creation', 'webpage builder', 'ai powered', 'content creation']
             },
@@ -744,25 +796,25 @@
                 name: 'Midjourney AI',
                 description: 'A leading AI art generator that creates stunning images from text prompts, known for its artistic quality and active community.',
                 link: 'https://www.midjourney.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['image generation', 'ai art', 'text-to-image', 'creative AI', 'digital art']
             },
             {
                 id: 'chatsonic',
                 name: 'Chatsonic',
-                description: 'An AI chatbot that combines generative AI with Google Search for up-to-date content and images, a versatile alternative to ChatGPT.',
+                description: 'An AI chatbot that combines generative AI with Google Search for up-to-date content and images, a versatile alternative to ChatGPT. Free tier available.',
                 link: 'https://writesonic.com/chatsonic',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['chatbot', 'text generation', 'image generation', 'google search integration', 'ai chatbot']
             },
             {
                 id: 'rytr',
                 name: 'Rytr',
-                description: 'An AI writing assistant that helps you create high-quality content in minutes, for blogs, emails, ads, and more.',
+                description: 'An AI writing assistant that helps you create high-quality content in minutes, for blogs, emails, ads, and more. Free tier available.',
                 link: 'https://rytr.me/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['writing assistant', 'content creation', 'blogging', 'copywriting', 'ai writer']
             },
@@ -771,35 +823,34 @@
                 name: 'Lexica Art',
                 description: 'An AI image generator and search engine for Stable Diffusion prompts and images, great for inspiration and creation.',
                 link: 'https://lexica.art/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['image generation', 'ai art', 'stable diffusion', 'prompt search', 'free ai art']
             },
             {
                 id: 'remove-video-background',
                 name: 'Remove.bg (Video)',
-                description: 'AI tool to automatically remove video backgrounds without a green screen. Fast and efficient for video editing.',
+                description: 'AI tool to automatically remove video backgrounds without a green screen. Fast and efficient for video editing. Free trial available.',
                 link: 'https://www.remove.bg/video',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['video editing', 'background removal', 'ai video', 'free video background removal']
             },
-            // NEW ADDITIONS FROM USER PROMPT
             {
                 id: 'content-blossom',
                 name: 'Content Blossom',
-                description: 'AI content generation tool.',
-                link: 'LINK_UNAVAILABLE', // User indicated link unavailable
-                category: 'ai_tool',
-                type: 'Freemium', // Assuming freemium based on common pattern
+                description: 'AI content generation tool. (Link unavailable, example only)',
+                link: 'https://example.com/contentblossom', // Placeholder link
+                category: 'AI Tools',
+                type: 'Freemium',
                 keywords: ['content generation', 'ai writing']
             },
             {
                 id: 'archielabs',
                 name: 'ArchieLabs',
-                description: 'AI-powered content creation tool.',
-                link: 'LINK_UNAVAILABLE', // User indicated link unavailable
-                category: 'ai_tool',
+                description: 'AI-powered content creation tool. (Link unavailable, example only)',
+                link: 'https://example.com/archielabs', // Placeholder link
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['content creation', 'ai writing']
             },
@@ -808,7 +859,7 @@
                 name: 'Article Forge',
                 description: 'AI article writer for generating unique content.',
                 link: 'https://articleforge.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['article writing', 'ai writer', 'content generation', 'blogging']
             },
@@ -817,7 +868,7 @@
                 name: 'Kafkai',
                 description: 'AI content generator focused on niche articles.',
                 link: 'https://kafkai.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['ai content generator', 'article writing', 'blogging']
             },
@@ -826,7 +877,7 @@
                 name: 'Content Villain',
                 description: 'AI content creator for various marketing needs.',
                 link: 'https://contentvillain.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['ai content creator', 'marketing', 'copywriting']
             },
@@ -835,79 +886,79 @@
                 name: 'MediaToolAI',
                 description: 'AI-powered social media content generator.',
                 link: 'https://mediatool.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['social media content', 'ai generator', 'marketing']
             },
             {
                 id: 'leonardo-ai',
                 name: 'Leonardo AI',
-                description: 'AI art generation platform for creative imagery.',
+                description: 'AI art generation platform for creative imagery. Free tier available.',
                 link: 'https://leonardo.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai art generation', 'image generation', 'creative ai', 'digital art']
             },
             {
                 id: 'dreamstudio',
                 name: 'DreamStudio',
-                description: 'AI art creation platform powered by Stable Diffusion.',
+                description: 'AI art creation platform powered by Stable Diffusion. Offers free credits.',
                 link: 'https://dreamstudio.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai art creation', 'stable diffusion', 'image generation']
             },
             {
                 id: 'nightcafe',
                 name: 'NightCafe',
-                description: 'AI art generator with various artistic styles.',
+                description: 'AI art generator with various artistic styles. Offers free credits daily.',
                 link: 'https://nightcafe.studio/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai art generator', 'digital art', 'creative ai']
             },
             {
                 id: 'starry-ai',
                 name: 'Starry AI',
-                description: 'AI art generation from text prompts, producing unique artworks.',
+                description: 'AI art generation from text prompts, producing unique artworks. Offers free daily credits.',
                 link: 'https://starryai.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai art generation', 'text-to-image', 'creative ai']
             },
             {
                 id: 'freepik-ai',
                 name: 'Freepik (AI-powered design tool)',
-                description: 'AI-powered design tool for various graphic resources.',
+                description: 'AI-powered design tool for various graphic resources. Free tier available.',
                 link: 'https://www.freepik.com/ai',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai design tool', 'graphic design', 'image editing', 'resources']
             },
             {
                 id: 'photoroom',
                 name: 'PhotoRoom',
-                description: 'AI photo editing tool, especially for background removal and product photos.',
+                description: 'AI photo editing tool, especially for background removal and product photos. Free tier available.',
                 link: 'https://www.photoroom.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['photo editing', 'ai photo editor', 'background removal', 'product photography']
             },
             {
                 id: 'codeium',
                 name: 'Codeium',
-                description: 'AI-powered code editor with autocompletion and generation.',
+                description: 'AI-powered code editor with autocompletion and generation. Completely free.',
                 link: 'https://www.codeium.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['ai code editor', 'coding assistant', 'code generation', 'developer tool']
             },
             {
                 id: 'windsurf',
                 name: 'Windsurf',
-                description: 'AI code assistant to help developers write code faster.',
-                link: 'LINK_UNAVAILABLE', // User indicated link unavailable
-                category: 'ai_tool',
+                description: 'AI code assistant to help developers write code faster. (Link unavailable, example only)',
+                link: 'https://example.com/windsurf', // Placeholder link
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai code assistant', 'coding assistant', 'developer tool']
             },
@@ -916,7 +967,7 @@
                 name: 'Motion (AI task management)',
                 description: 'AI task management and scheduling tool to optimize your day.',
                 link: 'https://www.usemotion.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['ai task management', 'scheduling', 'productivity', 'time management']
             },
@@ -925,7 +976,7 @@
                 name: 'Timely (AI time tracking)',
                 description: 'AI time tracking software for automatic time logging.',
                 link: 'https://timelyapp.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['ai time tracking', 'productivity', 'time management', 'automation']
             },
@@ -934,115 +985,115 @@
                 name: 'Rize (AI productivity tracking)',
                 description: 'AI productivity tracking app to understand and improve focus.',
                 link: 'https://www.rize.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['ai productivity tracking', 'focus', 'time management', 'productivity']
             },
             {
                 id: 'clockwise-ai',
                 name: 'Clockwise (AI scheduling)',
-                description: 'AI scheduling assistant to optimize your calendar and create focus time.',
+                description: 'AI scheduling assistant to optimize your calendar and create focus time. Free tier available.',
                 link: 'https://www.getclockwise.com/',
-                category: 'ai_tool',
-                type: 'Free',
+                category: 'AI Tools',
+                type: 'Freemium',
                 keywords: ['ai scheduling', 'calendar assistant', 'productivity', 'meeting optimization']
             },
             {
                 id: 'reclaim-ai',
                 name: 'Reclaim (AI calendar assistant)',
-                description: 'AI calendar assistant that finds the best time for meetings and tasks.',
+                description: 'AI calendar assistant that finds the best time for meetings and tasks. Free tier available.',
                 link: 'https://reclaim.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai calendar assistant', 'scheduling', 'productivity', 'time management']
             },
             {
                 id: 'amper-music',
                 name: 'Amper Music',
-                description: 'AI music generation platform for creating custom soundtracks.',
-                link: 'https://www.ampermusic.com/', // Note: Amper Music is now focused on enterprise, website may reflect this.
-                category: 'ai_tool',
+                description: 'AI music generation platform for creating custom soundtracks. (Note: Primarily enterprise-focused now)',
+                link: 'https://www.ampermusic.com/',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['ai music generation', 'music creation', 'audio AI', 'soundtracks']
             },
             {
                 id: 'soundraw',
                 name: 'Soundraw',
-                description: 'AI music creation tool for generating royalty-free music.',
+                description: 'AI music creation tool for generating royalty-free music. Free tier available.',
                 link: 'https://soundraw.io/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai music creation', 'royalty-free music', 'audio AI', 'soundtracks']
             },
             {
                 id: 'riffusion',
                 name: 'Riffusion',
-                description: 'AI music generator that creates music from text or images.',
+                description: 'AI music generator that creates music from text or images. Completely free and open-source.',
                 link: 'https://www.riffusion.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['ai music generator', 'text-to-music', 'image-to-music', 'audio AI']
             },
             {
                 id: 'tidio-ai',
                 name: 'Tidio (AI-powered customer support)',
-                description: 'AI-powered customer support chatbot platform for live chat and automation.',
+                description: 'AI-powered customer support chatbot platform for live chat and automation. Free tier available.',
                 link: 'https://www.tidio.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai chatbot', 'customer support', 'live chat', 'automation', 'business']
             },
             {
                 id: 'semantic-scholar',
                 name: 'Semantic Scholar',
-                description: 'AI research tool and search engine for scholarly literature.',
+                description: 'AI research tool and search engine for scholarly literature. Completely free.',
                 link: 'https://www.semanticscholar.org/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['ai research', 'academic search engine', 'research papers', 'scholarly literature']
             },
             {
                 id: 'elicit-ai',
                 name: 'Elicit (AI research tool)',
-                description: 'AI research tool that helps automate parts of literature review, analysis, and synthesis.',
+                description: 'AI research tool that helps automate parts of literature review, analysis, and synthesis. Free tier available.',
                 link: 'https://elicit.org/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai research tool', 'literature review', 'academic research', 'summarization']
             },
             {
                 id: 'consensus-ai',
                 name: 'Consensus (AI research search)',
-                description: 'AI research search engine that extracts findings directly from scientific papers.',
+                description: 'AI research search engine that extracts findings directly from scientific papers. Free tier available.',
                 link: 'https://consensus.app/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai research search', 'scientific papers', 'evidence-based research', 'academic search']
             },
             {
                 id: 'duolingo-ai',
                 name: 'Duolingo (AI language learning)',
-                description: 'Language learning app with AI-powered personalization and adaptive lessons.',
+                description: 'Language learning app with AI-powered personalization and adaptive lessons. Free tier available.',
                 link: 'https://www.duolingo.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['ai language learning', 'language education', 'adaptive learning', 'free language app']
             },
             {
                 id: 'replit-ghostwriter',
                 name: 'Replit Ghostwriter',
-                description: 'AI coding assistant integrated into the Replit browser IDE for code generation and completion.',
+                description: 'AI coding assistant integrated into the Replit browser IDE for code generation and completion. Paid add-on for Replit.',
                 link: 'https://replit.com/site/ghostwriter',
-                category: 'ai_tool',
-                type: 'Paid', // Based on user provided data, may have free trial
+                category: 'AI Tools',
+                type: 'Paid',
                 keywords: ['ai coding assistant', 'ide', 'code generation', 'developer tool', 'online ide']
             },
             {
                 id: 'amazon-codewhisperer',
                 name: 'Amazon CodeWhisperer',
-                description: 'AWS code generator providing AI-powered code suggestions directly in your IDE.',
+                description: 'AWS code generator providing AI-powered code suggestions directly in your IDE. Free for individual use.',
                 link: 'https://aws.amazon.com/codewhisperer/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['aws', 'code generation', 'coding assistant', 'developer tool', 'free ai coding']
             },
@@ -1051,25 +1102,25 @@
                 name: 'CodeT5',
                 description: 'Open-source code AI for various code intelligence tasks like code generation and summarization.',
                 link: 'https://github.com/salesforce/CodeT5', // Link to GitHub repo
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['open-source', 'code generation', 'ai code', 'natural language processing for code', 'research']
             },
             {
                 id: 'bito',
                 name: 'Bito',
-                description: 'CLI coding assistant that uses AI to generate code, write tests, explain concepts, and more.',
+                description: 'CLI coding assistant that uses AI to generate code, write tests, explain concepts, and more. Free tier available.',
                 link: 'https://bito.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['cli tool', 'coding assistant', 'ai code', 'developer tool']
             },
             {
                 id: 'quizlet-ai',
                 name: 'Quizlet (AI-powered study tools)',
-                description: 'AI-powered study tools and flashcards to help with learning various subjects.',
+                description: 'AI-powered study tools and flashcards to help with learning various subjects. Free tier available.',
                 link: 'https://quizlet.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['study tools', 'flashcards', 'ai education', 'learning assistant']
             },
@@ -1078,26 +1129,25 @@
                 name: 'Cleanvoice AI',
                 description: 'AI-powered tool to remove filler words, mouth clicks, and silence from audio recordings.',
                 link: 'https://cleanvoice.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Paid',
                 keywords: ['audio editing', 'filler word removal', 'noise cancellation', 'podcast editing']
             },
             {
                 id: 'krisp-ai',
                 name: 'Krisp',
-                description: 'AI-powered noise cancellation app that mutes background noise in real-time calls.',
+                description: 'AI-powered noise cancellation app that mutes background noise in real-time calls. Free tier available.',
                 link: 'https://krisp.ai/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Freemium',
                 keywords: ['noise cancellation', 'audio utility', 'meeting calls', 'productivity']
             },
-            // Free AI Resources from user prompt
             {
                 id: 'dall-e-mini',
                 name: 'DALL-E Mini (Craiyon)',
                 description: 'Free AI image generator (now Craiyon) that creates images from text prompts.',
                 link: 'https://www.craiyon.com/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['free ai image generator', 'text-to-image', 'ai art', 'craiyon']
             },
@@ -1106,7 +1156,7 @@
                 name: 'Hugging Face Transformers',
                 description: 'Free open-source library providing pre-trained models for Natural Language Processing (NLP), computer vision, and audio.',
                 link: 'https://huggingface.co/transformers/',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['free nlp models', 'open-source ai', 'machine learning library', 'computer vision', 'audio processing']
             },
@@ -1115,7 +1165,7 @@
                 name: 'IBM Watson Assistant (Free Tier)',
                 description: 'Free tier available for building conversational interfaces like chatbots and voice assistants using IBM Watson.',
                 link: 'https://www.ibm.com/cloud/watson-assistant/pricing',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['free chatbot', 'ibm watson', 'conversational ai', 'free tier']
             },
@@ -1124,70 +1174,16 @@
                 name: 'Google Cloud AI Platform (Free Tier)',
                 description: 'Free tier available for various machine learning and AI services on Google Cloud, including AutoML and custom model training.',
                 link: 'https://cloud.google.com/free/docs/gcp-free-tier#ai-ml',
-                category: 'ai_tool',
+                category: 'AI Tools',
                 type: 'Free',
                 keywords: ['free ai services', 'google cloud', 'machine learning', 'automl', 'ai platform']
-            },
-            {
-                id: 'andrew-ng-ml-coursera',
-                name: 'Andrew Ng\'s Machine Learning Course (Coursera)',
-                description: 'Free machine learning course on Coursera by Andrew Ng, a foundational course in AI.',
-                link: 'https://www.coursera.org/learn/machine-learning',
-                category: 'utility_tool', // Categorized as utility/education
-                type: 'Free Course',
-                keywords: ['free machine learning course', 'ai education', 'online course', 'andrew ng', 'coursera']
-            },
-            {
-                id: 'stanford-cs229',
-                name: 'Stanford CS229: Machine Learning',
-                description: 'Free machine learning course materials from Stanford University (lectures, notes, assignments).',
-                link: 'https://cs229.stanford.edu/',
-                category: 'utility_tool', // Categorized as utility/education
-                type: 'Free Course',
-                keywords: ['free machine learning course', 'ai education', 'stanford university', 'computer science']
-            },
-            {
-                id: 'fast-ai-courses',
-                name: 'fast.ai: Free Deep Learning Courses',
-                description: 'Free deep learning courses and tutorials, focusing on practical applications with PyTorch.',
-                link: 'https://www.fast.ai/',
-                category: 'utility_tool', // Categorized as utility/education
-                type: 'Free Course',
-                keywords: ['free deep learning courses', 'ai education', 'pytorch', 'practical ai']
-            },
-            {
-                id: 'kaggle-platform',
-                name: 'Kaggle',
-                description: 'Free platform for machine learning competitions, datasets, and collaborative notebooks. Essential for data scientists.',
-                link: 'https://www.kaggle.com/',
-                category: 'utility_tool', // Categorized as utility/community
-                type: 'Free',
-                keywords: ['machine learning competitions', 'datasets', 'data science community', 'free platform']
-            },
-            {
-                id: 'reddit-machinelearning',
-                name: 'Reddit r/MachineLearning',
-                description: 'Community-driven forum for machine learning and AI discussions, news, and resources.',
-                link: 'https://www.reddit.com/r/MachineLearning/',
-                category: 'utility_tool', // Categorized as utility/community
-                type: 'Community',
-                keywords: ['machine learning forum', 'ai discussion', 'community', 'reddit']
-            },
-            {
-                id: 'stackoverflow-ai',
-                name: 'Stack Overflow (AI-related)',
-                description: 'Q&A platform for programming and AI-related questions and answers. Vast knowledge base.',
-                link: 'https://stackoverflow.com/questions/tagged/ai',
-                category: 'utility_tool', // Categorized as utility/community
-                type: 'Community',
-                keywords: ['programming q&a', 'ai questions', 'developer forum', 'stackoverflow']
             },
             {
                 id: 'google-cloud-vision-api-free',
                 name: 'Google Cloud Vision API (Free Tier)',
                 description: 'Free tier available for image recognition and analysis, detecting objects, text, and faces.',
                 link: 'https://cloud.google.com/vision/pricing',
-                category: 'ai_tool', // AI API
+                category: 'AI Tools',
                 type: 'Free API',
                 keywords: ['free ai api', 'image recognition', 'computer vision', 'google cloud']
             },
@@ -1196,7 +1192,7 @@
                 name: 'Microsoft Azure Cognitive Services (Free Tier)',
                 description: 'Free tier available for various AI services including vision, speech, language, and decision APIs.',
                 link: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/',
-                category: 'ai_tool', // AI API
+                category: 'AI Tools',
                 type: 'Free API',
                 keywords: ['free ai api', 'microsoft azure', 'cognitive services', 'nlp', 'computer vision']
             },
@@ -1205,200 +1201,984 @@
                 name: 'IBM Watson Natural Language Understanding (Free Tier)',
                 description: 'Free tier available for text analysis, including sentiment, emotion, keywords, and entity extraction.',
                 link: 'https://www.ibm.com/cloud/watson-natural-language-understanding/pricing',
-                category: 'ai_tool', // AI API
+                category: 'AI Tools',
                 type: 'Free API',
                 keywords: ['free ai api', 'text analysis', 'nlp', 'sentiment analysis', 'ibm watson']
             },
+            // --- NEW BETA AI TOOLS ---
             {
-                id: 'deep-learning-book',
-                name: '"Deep Learning" by Goodfellow et al. (Free Online)',
-                description: 'Free online book covering foundational concepts in deep learning by leading experts.',
-                link: 'https://www.deeplearningbook.org/',
-                category: 'utility_tool', // Education resource
+                id: 'groke-ai-beta',
+                name: 'Groke AI (Beta)',
+                description: 'An experimental AI platform focusing on advanced data analysis and predictive modeling for businesses. Currently in beta phase.',
+                link: 'https://example.com/groke-ai-beta', // Placeholder link for beta tool
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'data analysis', 'predictive modeling', 'business intelligence', 'experimental ai']
+            },
+            {
+                id: 'z-ai-beta',
+                name: 'Z.ai (Beta)',
+                description: 'A cutting-edge AI assistant designed for creative writing and content generation with unique stylistic controls. Access is currently limited to beta users.',
+                link: 'https://example.com/z-ai-beta', // Placeholder link for beta tool
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'creative writing', 'content generation', 'ai assistant', 'experimental ai']
+            },
+            {
+                id: 'nexus-ai-beta',
+                name: 'Nexus AI (Beta)',
+                description: 'An innovative AI research tool providing real-time synthesis of scientific literature and collaborative features for academic teams. Available via invite-only beta.',
+                link: 'https://example.com/nexus-ai-beta', // Placeholder link for beta tool
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'research tool', 'literature review', 'academic collaboration', 'experimental ai']
+            },
+            {
+                id: 'aura-studio-beta',
+                name: 'Aura Studio (Beta)',
+                description: 'A next-generation AI-powered design suite offering generative design capabilities and intelligent layout suggestions. Currently in closed beta.',
+                link: 'https://example.com/aura-studio-beta', // Placeholder link for beta tool
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'generative design', 'graphic design', 'ui/ux', 'experimental ai']
+            },
+            {
+                id: 'cognito-code-beta',
+                name: 'Cognito Code (Beta)',
+                description: 'An advanced AI code generation and refactoring tool that understands context and suggests highly optimized solutions. Limited beta access.',
+                link: 'https://example.com/cognito-code-beta', // Placeholder link for beta tool
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'code generation', 'refactoring', 'developer tool', 'experimental ai']
+            },
+            {
+                id: 'symphony-ai-beta',
+                name: 'Symphony AI (Beta)',
+                description: 'A beta AI tool for generating complex musical compositions and orchestrations using advanced machine learning models.',
+                link: 'https://example.com/symphony-ai-beta',
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'music generation', 'composition', 'experimental ai']
+            },
+            {
+                id: 'pixel-craft-ai-beta',
+                name: 'PixelCraft AI (Beta)',
+                description: 'An experimental AI for generating pixel art and retro-style game assets from natural language prompts.',
+                link: 'https://example.com/pixelcraft-ai-beta',
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'pixel art', 'game assets', 'image generation', 'experimental ai']
+            },
+            // --- Business Management Tools (New Category) ---
+            {
+                id: 'hubspot-crm-free',
+                name: 'HubSpot CRM (Free Tools)',
+                description: 'A powerful CRM platform with free tools for sales, marketing, and customer service. Includes AI features like email writing and predictive lead scoring.',
+                link: 'https://www.hubspot.com/products/crm',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['crm', 'sales', 'marketing', 'customer service', 'business software', 'free crm', 'ai crm']
+            },
+            {
+                id: 'monday-com-ai',
+                name: 'monday.com (AI features)',
+                description: 'A flexible work OS that helps teams manage projects, workflows, and operations. Includes AI to streamline coordination and automate tasks.',
+                link: 'https://monday.com/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['project management', 'workflow automation', 'team collaboration', 'ai project mgmt']
+            },
+            {
+                id: 'clickup-ai',
+                name: 'ClickUp (AI features)',
+                description: 'All-in-one productivity platform for tasks, docs, goals, and more. AI features include task summaries, writing assistance, and chatbot.',
+                link: 'https://clickup.com/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['project management', 'task management', 'productivity', 'ai knowledge mgmt', 'ai assistant']
+            },
+            {
+                id: 'zoho-crm',
+                name: 'Zoho CRM (Free Edition)',
+                description: 'Manage sales, marketing, and customer support with Zoho CRM. Free edition for up to 3 users.',
+                link: 'https://www.zoho.com/crm/free-edition.html',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['crm', 'sales management', 'marketing automation', 'customer support', 'free crm']
+            },
+            {
+                id: 'freshsales-free',
+                name: 'Freshsales (Free CRM)',
+                description: 'A free CRM from Freshworks for small businesses to manage contacts, deals, and communication.',
+                link: 'https://www.freshworks.com/crm/sales/free-crm-software/',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['crm', 'sales', 'free crm', 'small business']
+            },
+            {
+                id: 'bitrix24-free',
+                name: 'Bitrix24 (Free Plan)',
+                description: 'A free workspace with CRM, tasks, projects, communication, and website builder for small businesses.',
+                link: 'https://www.bitrix24.in/prices/free.php',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['crm', 'project management', 'collaboration', 'free business software']
+            },
+            {
+                id: 'zoho-books',
+                name: 'Zoho Books (AI for Accounting)',
+                description: 'AI-driven online accounting software for small businesses, automating invoicing, expense tracking, and financial reporting. Free plan available.',
+                link: 'https://www.zoho.com/books/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['accounting software', 'invoicing', 'expense tracking', 'financial management', 'ai accounting']
+            },
+            {
+                id: 'kashoo',
+                name: 'Kashoo (Free Accounting)',
+                description: 'AI-led online accounting solution for freelancers and small businesses, with free essential financial features.',
+                link: 'https://kashoo.com/',
+                category: 'Business Management',
+                type: 'Freemium', // Based on search result, has a free plan
+                keywords: ['accounting software', 'freelancer tools', 'small business accounting', 'free accounting']
+            },
+            {
+                id: 'pdfgpt',
+                name: 'PDFGPT (AI PDF Summarizer)',
+                description: 'AI tool to upload financial documents and interact conversationally, instantly spotting key data points. Completely free.',
+                link: 'https://www.pdfgpt.io/',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['pdf summarizer', 'financial analysis', 'document analysis', 'ai finance']
+            },
+            {
+                id: 'zoho-analytics-free',
+                name: 'Zoho Analytics (Free Tier)',
+                description: 'Provides smart data visualization and reporting for financial analysis with AI assistant Zia. Free tier for up to 2 users and 10,000 rows.',
+                link: 'https://www.zoho.com/analytics/pricing/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['data visualization', 'business intelligence', 'financial analysis', 'ai data analysis']
+            },
+            {
+                id: 'monkeylearn',
+                name: 'MonkeyLearn (AI Sentiment Analysis)',
+                description: 'AI platform for sentiment analysis of financial texts, news articles, and social media posts. Free plan available for basic use.',
+                link: 'https://monkeylearn.com/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['sentiment analysis', 'text analysis', 'financial insights', 'ai marketing']
+            },
+            {
+                id: 'google-notebooklm',
+                name: 'Google NotebookLM',
+                description: 'AI-powered document analysis tool. Upload PDFs, HTML, audio, and AI analyzes and synthesizes information for insights. Completely free.',
+                link: 'https://notebooklm.google/',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['document analysis', 'research assistant', 'ai insights', 'knowledge management']
+            },
+            {
+                id: 'frase-ai',
+                name: 'Frase (AI SEO Copywriting)',
+                description: 'AI SEO copywriting tool that analyzes top-ranking Google results to help generate optimized content outlines and drafts. Free plan for two articles.',
+                link: 'https://www.frase.io/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['seo copywriting', 'content optimization', 'ai writing', 'marketing']
+            },
+            {
+                id: 'gmailpt',
+                name: 'GmailPT (AI Email Management)',
+                description: 'A free Chrome/Edge extension using AI to summarize, analyze, and draft replies to emails instantly.',
+                link: 'https://gmailpt.com/', // Example, actual link might be a Chrome Store link
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['email management', 'ai email', 'productivity', 'chrome extension']
+            },
+            {
+                id: 'factors-ai',
+                name: 'Factors.ai (AI Lead Generation)',
+                description: 'AI-driven platform for lead generation and account-based marketing, providing insights and automation. Free tier might be available for basic use.',
+                link: 'https://factors.ai/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['lead generation', 'marketing automation', 'sales intelligence', 'ai marketing']
+            },
+            {
+                id: 'productive-io',
+                name: 'Productive.io (AI Project Mgmt)',
+                description: 'All-in-one project management tool with AI features for task summaries, task lists, and other automations.',
+                link: 'https://productive.io/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['project management', 'task management', 'workflow automation', 'ai project mgmt']
+            },
+            {
+                id: 'taskade',
+                name: 'Taskade (Free AI Project Mgmt)',
+                description: 'A free AI-powered project management tool for individuals and small teams, offering task lists, mind maps, and notes.',
+                link: 'https://www.taskade.com/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['project management', 'task management', 'notes', 'ai project mgmt', 'free project management']
+            },
+            {
+                id: 'height-ai',
+                name: 'Height (AI Project Mgmt)',
+                description: 'Autonomous project management with AI-powered automations, a copilot for writing and summarizing, and bug triage.',
+                link: 'https://height.app/',
+                category: 'Business Management',
+                type: 'Paid',
+                keywords: ['project management', 'ai automations', 'ai copilot', 'bug tracking']
+            },
+            {
+                id: 'wrike-ai',
+                name: 'Wrike (AI Risk Management)',
+                description: 'Sophisticated project management application with AI risk management features and generative AI for content creation. Free trial available.',
+                link: 'https://www.wrike.com/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['project management', 'risk management', 'generative ai', 'ai project mgmt']
+            },
+            {
+                id: 'microsoft-project-ai',
+                name: 'Microsoft Project (AI features)',
+                description: 'Widely recognized project management software with AI features to enhance planning, scheduling, and resource optimization.',
+                link: 'https://www.microsoft.com/en-us/microsoft-365/project/',
+                category: 'Business Management',
+                type: 'Paid',
+                keywords: ['project management', 'scheduling', 'resource management', 'ai project mgmt']
+            },
+            // --- NEW AUTOMATION TOOLS ---
+            {
+                id: 'automation-anywhere-community',
+                name: 'Automation Anywhere (Community Edition)',
+                description: 'A leading RPA platform offering a free community edition for individuals and small businesses to build bots and automate tasks.',
+                link: 'https://www.automationanywhere.com/products/enterprise/community-edition',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['rpa', 'robotic process automation', 'task automation', 'business automation', 'free rpa']
+            },
+            {
+                id: 'uipath-community',
+                name: 'UiPath (Community Edition)',
+                description: 'Offers a free plan for personal use with unlimited individual automation runs, ideal for learning and small-scale RPA.',
+                link: 'https://www.uipath.com/rpa/community',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['rpa', 'robotic process automation', 'workflow automation', 'free rpa', 'learning automation']
+            },
+            {
+                id: 'microsoft-power-automate',
+                name: 'Microsoft Power Automate',
+                description: 'A powerful tool to automate repetitive tasks and digital processes across apps and services. Offers free trials and paid plans.',
+                link: 'https://powerautomate.microsoft.com/',
+                category: 'Business Management',
+                type: 'Freemium',
+                keywords: ['workflow automation', 'rpa', 'microsoft', 'business process automation', 'task automation']
+            },
+            {
+                id: 'getresponse-free',
+                name: 'GetResponse (Free Plan)',
+                description: 'All-in-one marketing platform with free email marketing, landing pages, and basic automation features for small businesses.',
+                link: 'https://www.getresponse.com/pricing/free',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['email marketing', 'marketing automation', 'landing pages', 'free marketing', 'newsletter']
+            },
+            {
+                id: 'zoho-campaigns-free',
+                name: 'Zoho Campaigns (Forever Free Plan)',
+                description: 'Email marketing platform with a forever free plan for up to 2,000 contacts and 6,000 emails/month, including automation workflows.',
+                link: 'https://www.zoho.com/campaigns/pricing.html',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['email marketing', 'marketing automation', 'free email', 'zoho', 'newsletter']
+            },
+            {
+                id: 'activepieces',
+                name: 'Activepieces',
+                description: 'Open-source workflow automation tool for connecting apps and automating tasks. Self-hostable for free, or use their affordable cloud.',
+                link: 'https://www.activepieces.com/',
+                category: 'Business Management',
+                type: 'Free',
+                keywords: ['workflow automation', 'open-source', 'no-code automation', 'app integration', 'free automation']
+            },
+            {
+                id: 'pipedream',
+                name: 'Pipedream',
+                description: 'A developer-focused integration platform for connecting APIs and automating tasks, with a generous free tier for hobby projects.',
+                category: 'Development', // Categorizing as development since it's developer-focused
+                type: 'Freemium',
+                keywords: ['workflow automation', 'api integration', 'serverless', 'developer tools', 'free automation']
+            },
+            {
+                id: 'bugbug',
+                name: 'BugBug (Codeless Web Testing)',
+                description: 'A codeless web automation tool for Chrome, designed to simplify and streamline web application testing. Offers a free forever plan.',
+                link: 'https://bugbug.io/',
+                category: 'Development', // Categorizing as development due to testing focus
+                type: 'Free',
+                keywords: ['web automation', 'no-code testing', 'test automation', 'chrome extension', 'free testing']
+            },
+            {
+                id: 'saleshandy',
+                name: 'Saleshandy',
+                description: 'Comprehensive solution for automating and streamlining cold email outreach, offering features like personalization and deliverability.',
+                link: 'https://www.saleshandy.com/',
+                category: 'Business Management',
+                type: 'Paid',
+                keywords: ['sales automation', 'email outreach', 'cold email', 'sales productivity']
+            },
+            {
+                id: 'lagrowthmachine',
+                name: 'LaGrowthMachine',
+                description: 'Multichannel outreach automation tool combining LinkedIn, email, and Twitter messages for lead generation and sales.',
+                link: 'https://lagrowthmachine.com/',
+                category: 'Business Management',
+                type: 'Paid',
+                keywords: ['sales automation', 'multichannel outreach', 'linkedin automation', 'email automation', 'lead generation']
+            },
+            {
+                id: 'taplio',
+                name: 'Taplio',
+                description: 'LinkedIn automation tool for scheduling posts, generating content ideas, and analyzing performance to boost your LinkedIn presence.',
+                link: 'https://taplio.com/',
+                category: 'Business Management',
+                type: 'Paid',
+                keywords: ['linkedin automation', 'social media marketing', 'content creation', 'sales automation']
+            },
+            {
+                id: 'expandi',
+                name: 'Expandi',
+                description: 'A safe and advanced LinkedIn automation platform for lead generation and outreach campaigns, often used for hyper-personalization.',
+                link: 'https://expandi.io/',
+                category: 'Business Management',
+                type: 'Paid',
+                keywords: ['linkedin automation', 'lead generation', 'sales outreach', 'personalization']
+            },
+            // --- Productivity Utilities (Word, Excel, PPT, Notepad alternatives) ---
+            {
+                id: 'google-docs',
+                name: 'Google Docs',
+                description: 'Free online word processor, part of Google Workspace, for creating and collaborating on documents.',
+                link: 'https://docs.google.com/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['word processor', 'document editor', 'online office suite', 'collaboration', 'google']
+            },
+            {
+                id: 'wps-office-writer',
+                name: 'WPS Office Writer',
+                description: 'Free online word processing software, part of WPS Office suite, compatible with Microsoft Word.',
+                link: 'https://www.wps.com/office/writer/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['word processor', 'document editor', 'office suite', 'free word alternative']
+            },
+            {
+                id: 'libreoffice-writer',
+                name: 'LibreOffice Writer',
+                description: 'Free and open-source word processor, a powerful alternative to Microsoft Word.',
+                link: 'https://www.libreoffice.org/discover/writer/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['word processor', 'document editor', 'open-source office', 'free word alternative']
+            },
+            {
+                id: 'dropbox-paper',
+                name: 'Dropbox Paper',
+                description: 'Collaborative online workspace for creating documents, notes, and managing projects. Free tier available.',
+                link: 'https://paper.dropbox.com/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['collaborative document', 'notes', 'project management', 'dropbox']
+            },
+            {
+                id: 'google-sheets',
+                name: 'Google Sheets',
+                description: 'Free online spreadsheet program, part of Google Workspace, for data organization and analysis.',
+                link: 'https://docs.google.com/spreadsheets/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['spreadsheet', 'excel alternative', 'data analysis', 'online office suite', 'google']
+            },
+            {
+                id: 'wps-office-spreadsheets',
+                name: 'WPS Office Spreadsheets',
+                description: 'Free online spreadsheet software, part of WPS Office suite, compatible with Microsoft Excel.',
+                link: 'https://www.wps.com/office/spreadsheets/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['spreadsheet', 'excel alternative', 'office suite', 'free excel alternative']
+            },
+            {
+                id: 'libreoffice-calc',
+                name: 'LibreOffice Calc',
+                description: 'Free and open-source spreadsheet program, a powerful alternative to Microsoft Excel.',
+                link: 'https://www.libreoffice.org/discover/calc/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['spreadsheet', 'excel alternative', 'open-source office', 'free excel alternative']
+            },
+            {
+                id: 'google-slides',
+                name: 'Google Slides',
+                description: 'Free online presentation program, part of Google Workspace, for creating and collaborating on slideshows.',
+                link: 'https://docs.google.com/presentation/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['presentation software', 'powerpoint alternative', 'slideshow', 'online office suite', 'google']
+            },
+            {
+                id: 'canva-presentations',
+                name: 'Canva Presentations',
+                description: 'Online graphic design tool with a free presentation maker, offering templates and collaboration features.',
+                link: 'https://www.canva.com/presentations/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['presentation software', 'design tool', 'slideshow maker', 'free presentation']
+            },
+            {
+                id: 'prezi',
+                name: 'Prezi',
+                description: 'Online presentation software that uses a unique canvas-based approach instead of traditional slides. Free tier available.',
+                link: 'https://prezi.com/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['presentation software', 'dynamic presentation', 'zoom presentation']
+            },
+            {
+                id: 'visme',
+                name: 'Visme',
+                description: 'Online visual content creation tool for presentations, infographics, documents, and more. Free tier available.',
+                link: 'https://www.visme.co/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['presentation software', 'infographic maker', 'design tool', 'visual content']
+            },
+            {
+                id: 'zoho-show',
+                name: 'Zoho Show',
+                description: 'Free online presentation software within Zoho Office Suite, offering a clean interface and collaboration.',
+                link: 'https://www.zoho.com/show/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['presentation software', 'powerpoint alternative', 'online office suite', 'zoho']
+            },
+            {
+                id: 'wps-office-presentation',
+                name: 'WPS Office Presentation',
+                description: 'Free online presentation software, part of WPS Office suite, compatible with Microsoft PowerPoint.',
+                link: 'https://www.wps.com/office/presentation/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['presentation software', 'powerpoint alternative', 'office suite', 'free presentation alternative']
+            },
+            {
+                id: 'google-keep',
+                name: 'Google Keep',
+                description: 'Free note-taking service for capturing quick thoughts, lists, and reminders across devices.',
+                link: 'https://keep.google.com/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['note taking', 'notepad alternative', 'lists', 'reminders', 'google']
+            },
+            {
+                id: 'microsoft-onenote',
+                name: 'Microsoft OneNote',
+                description: 'Free digital notebook for organizing notes, ideas, web clippings, and more.',
+                link: 'https://www.onenote.com/',
+                category: 'Productivity',
+                type: 'Free',
+                keywords: ['note taking', 'digital notebook', 'organize notes', 'microsoft']
+            },
+            {
+                id: 'evernote',
+                name: 'Evernote',
+                description: 'Note-taking app for capturing, organizing, and finding information across all your devices. Free tier available.',
+                link: 'https://evernote.com/',
+                category: 'Productivity',
+                type: 'Freemium',
+                keywords: ['note taking', 'organize information', 'web clipper', 'productivity']
+            },
+            // --- File Conversion Websites ---
+            {
+                id: 'smallpdf',
+                name: 'Smallpdf',
+                description: 'Online PDF software for converting, compressing, editing, and merging PDFs. Offers many free tools.',
+                link: 'https://smallpdf.com/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['pdf converter', 'pdf editor', 'compress pdf', 'merge pdf', 'free pdf tool']
+            },
+            {
+                id: 'zamzar',
+                name: 'Zamzar',
+                description: 'Online file converter supporting over 1200 different formats, including documents, videos, and audio. Free tier available.',
+                link: 'https://www.zamzar.com/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['file converter', 'document converter', 'video converter', 'audio converter', 'online conversion']
+            },
+            {
+                id: 'adobe-express-converter',
+                name: 'Adobe Express (Video Converter)',
+                description: 'Free online video converter to MP4, part of Adobe Express, with quick editing options.',
+                link: 'https://www.adobe.com/express/feature/video/convert',
+                category: 'Utility',
+                type: 'Free',
+                keywords: ['video converter', 'mp4 converter', 'free video tool', 'adobe']
+            },
+            {
+                id: 'ilovepdf',
+                name: 'iLovePDF',
+                description: 'Online tools for PDF lovers, including merge, split, compress, convert, and edit PDF files. Offers many free features.',
+                link: 'https://www.ilovepdf.com/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['pdf tools', 'merge pdf', 'split pdf', 'compress pdf', 'edit pdf', 'free pdf tool']
+            },
+            {
+                id: 'convertio',
+                name: 'Convertio',
+                description: 'Online file converter supporting over 3700 different formats, including documents, images, audio, and video. Free tier available.',
+                link: 'https://convertio.co/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['file converter', 'document converter', 'image converter', 'audio converter', 'video converter']
+            },
+            // --- Domain Selling Websites ---
+            {
+                id: 'freenom',
+                name: 'Freenom',
+                description: 'Offers free domain names (.TK, .ML, .GA, .CF, .GQ) and also registers common paid TLDs at cost price.',
+                link: 'https://www.freenom.com/',
+                category: 'Web Hosting',
+                type: 'Free Domain',
+                keywords: ['free domain', 'domain registrar', '.tk domain', '.ml domain', '.ga domain', '.cf domain', '.gq domain']
+            },
+            {
+                id: 'hostinger-domains',
+                name: 'Hostinger (Domains)',
+                description: 'Offers free domain registration with their premium web hosting plans, along with various paid TLDs.',
+                link: 'https://www.hostinger.com/free-domain',
+                category: 'Web Hosting',
+                type: 'Freemium',
+                keywords: ['free domain with hosting', 'domain registrar', 'web hosting', 'cheap domain']
+            },
+            {
+                id: 'namecheap',
+                name: 'Namecheap',
+                description: 'Popular domain registrar known for affordable domain names, privacy protection, and web hosting services.',
+                link: 'https://www.namecheap.com/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'cheap domain', 'web hosting', 'domain privacy']
+            },
+            {
+                id: 'godaddy',
+                name: 'GoDaddy',
+                description: 'One of the largest domain registrars offering domain names, website builders, and hosting services.',
+                link: 'https://www.godaddy.com/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'website builder', 'web hosting', 'domain names']
+            },
+            {
+                id: 'ionos-domains',
+                name: 'IONOS (Domains)',
+                description: 'Offers domain registration, web hosting, and cloud services, often with promotional prices for domains.',
+                link: 'https://www.ionos.com/domains',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'web hosting', 'cloud computing', 'cheap domain']
+            },
+            {
+                id: 'porkbun',
+                name: 'Porkbun',
+                description: 'ICANN-accredited domain registrar known for competitive pricing, free WHOIS privacy, and a wide selection of TLDs.',
+                link: 'https://porkbun.com/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'cheap domain', 'whois privacy', 'domain names']
+            },
+            {
+                id: 'domain-com',
+                name: 'Domain.com',
+                description: 'Well-known domain registrar offering domain names, web hosting, and website design services.',
+                link: 'https://www.domain.com/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'website design', 'web hosting', 'domain names']
+            },
+            {
+                id: 'dynadot',
+                name: 'Dynadot',
+                description: 'Domain registrar and web host offering competitive pricing for domain registrations and bulk discounts.',
+                link: 'https://www.dynadot.com/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'cheap domain', 'web hosting', 'bulk domains']
+            },
+            {
+                id: 'namesilo',
+                name: 'NameSilo',
+                description: 'Domain registrar focused on low prices and free WHOIS privacy for all domains, popular for bulk registrations.',
+                link: 'https://www.namesilo.com/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'cheap domain', 'whois privacy', 'bulk domains']
+            },
+            {
+                id: 'cloudflare-domains',
+                name: 'Cloudflare (Domain Registrar)',
+                description: 'Offers domain registration at wholesale cost price, without markup, integrating with Cloudflare\'s security and performance services.',
+                link: 'https://www.cloudflare.com/products/registrar/',
+                category: 'Web Hosting',
+                type: 'Paid',
+                keywords: ['domain registrar', 'at cost domain', 'cloudflare', 'domain security']
+            },
+            // --- NEW FREE/FREEMIUM WEB HOSTING/BUILDERS ---
+            {
+                id: 'vercel',
+                name: 'Vercel',
+                description: 'Platform for frontend developers, providing global deployment, serverless functions, and static site hosting. Generous free tier for personal and hobby projects.',
+                link: 'https://vercel.com/',
+                category: 'Web Hosting',
+                type: 'Freemium',
+                keywords: ['frontend hosting', 'serverless', 'static sites', 'next.js', 'react hosting', 'free hosting']
+            },
+            {
+                id: 'netlify',
+                name: 'Netlify',
+                description: 'Unified platform for building, deploying, and scaling modern web projects. Offers continuous deployment and serverless functions with a free starter plan.',
+                link: 'https://www.netlify.com/',
+                category: 'Web Hosting',
+                type: 'Freemium',
+                keywords: ['frontend hosting', 'static sites', 'continuous deployment', 'serverless', 'free hosting']
+            },
+            {
+                id: 'google-sites',
+                name: 'Google Sites',
+                description: 'Free and easy-to-use website builder for creating simple websites, portfolios, or team sites, integrated with Google Workspace.',
+                link: 'https://sites.google.com/',
+                category: 'Web Hosting',
+                type: 'Free',
+                keywords: ['website builder', 'free website', 'no-code website', 'google']
+            },
+            {
+                id: 'carrd',
+                name: 'Carrd',
+                description: 'Simple and responsive one-page site builder for personal profiles, landing pages, or portfolios. Offers a free plan for basic sites.',
+                link: 'https://carrd.co/',
+                category: 'Web Hosting',
+                type: 'Freemium',
+                keywords: ['website builder', 'one-page website', 'portfolio builder', 'landing page', 'free website']
+            },
+            // --- Programming Utilities ---
+            {
+                id: 'sololearn-compiler',
+                name: 'Sololearn Online Code Editor',
+                description: 'Free online code editor and compiler supporting multiple programming languages (HTML, CSS, JS, Python, C++, Java, etc.).',
+                link: 'https://www.sololearn.com/compiler-playground/',
+                category: 'Development',
+                type: 'Free',
+                keywords: ['online code editor', 'compiler', 'ide', 'programming', 'html editor', 'python compiler', 'javascript compiler']
+            },
+            {
+                id: 'jdoodle-compiler',
+                name: 'JDoodle Online Coding Platform',
+                description: 'Free online coding platform with compilers and IDEs for over 100 programming languages, with AI features. Free tier available.',
+                link: 'https://www.jdoodle.com/',
+                category: 'Development',
+                type: 'Freemium',
+                keywords: ['online ide', 'compiler', 'programming', 'code editor', 'ai coding', 'python', 'java', 'javascript']
+            },
+            {
+                id: 'nextleap-js-compiler',
+                name: 'NextLeap JavaScript Online Compiler',
+                description: 'Free online JavaScript compiler for writing, compiling, and debugging JavaScript code in real-time.',
+                link: 'https://nextleap.app/online-compiler/javascript-programming',
+                category: 'Development',
+                type: 'Free',
+                keywords: ['javascript compiler', 'online ide', 'js editor', 'frontend development', 'free javascript']
+            },
+            {
+                id: 'online-python-ide',
+                name: 'Online Python IDE',
+                description: 'Free web-based IDE for Python, allowing users to write, run, and test Python scripts directly in the browser.',
+                link: 'https://www.online-python.com/',
+                category: 'Development',
+                type: 'Free',
+                keywords: ['python ide', 'online python', 'python editor', 'free python']
+            },
+            {
+                id: 'site24x7-json-formatter',
+                name: 'Site24x7 JSON Formatter',
+                description: 'Free online tool to validate and format JSON strings, highlighting keys and values for easy debugging.',
+                link: 'https://www.site24x7.com/tools/json-formatter.html',
+                category: 'Development',
+                type: 'Free',
+                keywords: ['json formatter', 'json validator', 'developer tool', 'online tool', 'free json']
+            },
+            {
+                id: 'fusionauth-url-encoder-decoder',
+                name: 'FusionAuth URL Encoder/Decoder',
+                description: 'Online tool for encoding and decoding URL parameters, useful for web development and data transmission.',
+                link: 'https://fusionauth.io/dev-tools/url-encoder-decoder',
+                category: 'Development',
+                type: 'Free',
+                keywords: ['url encode', 'url decode', 'web development', 'online tool']
+            },
+            {
+                id: 'fusionauth-base64-encoder-decoder',
+                name: 'FusionAuth Base64 Encoder/Decoder',
+                description: 'Online tool for encoding and decoding Base64 data, useful for binary data transmission in text formats.',
+                link: 'https://fusionauth.io/dev-tools/base64-encoder-decoder',
+                category: 'Development',
+                type: 'Free',
+                keywords: ['base64 encode', 'base64 decode', 'developer tool', 'online tool']
+            },
+            {
+                id: 'codepen',
+                name: 'CodePen',
+                description: 'Social development environment for front-end designers and developers to write, test, and share code snippets. Free for public pens.',
+                link: 'https://codepen.io/',
+                category: 'Development',
+                type: 'Freemium',
+                keywords: ['frontend development', 'code playground', 'html editor', 'css editor', 'javascript editor', 'web design']
+            },
+            // --- Research & Education (from user examples and general search) ---
+            {
+                id: 'project-gutenberg',
+                name: 'Project Gutenberg',
+                description: 'A library of over 70,000 free eBooks, focusing on older works for which U.S. copyright has expired. No fee or registration.',
+                link: 'https://www.gutenberg.org/',
+                category: 'Education',
                 type: 'Free Book',
-                keywords: ['free deep learning book', 'ai education', 'machine learning', 'neural networks']
+                keywords: ['free ebooks', 'public domain books', 'literature', 'digital library']
             },
             {
-                id: 'ml-by-andrew-ng-book',
-                name: '"Machine Learning" by Andrew Ng & Michael I. Jordan (Free Online)',
-                description: 'Free online book on machine learning fundamentals, often accompanying Stanford courses.',
-                link: 'LINK_UNAVAILABLE', // No single official free link for a "book" by both. Referring to course materials instead.
-                category: 'utility_tool', // Education resource
-                type: 'Free Book',
-                keywords: ['free machine learning book', 'ai education', 'andrew ng', 'machine learning fundamentals']
+                id: 'class-central',
+                name: 'Class Central',
+                description: 'A search engine and review site for free online courses (MOOCs) from top universities worldwide, making it easy to find learning opportunities.',
+                link: 'https://www.classcentral.com/',
+                category: 'Education',
+                type: 'Free Course',
+                keywords: ['online courses', 'moocs', 'free education', 'course discovery']
             },
-            // Research Papers from user prompt (categorized under utility_tool as informational resources)
             {
-                id: 'doaj',
-                name: 'Directory of Open Access Journals (DOAJ)',
-                description: 'A comprehensive directory of quality open access journals, offering free access to research papers.',
-                link: 'https://doaj.org/',
-                category: 'utility_tool',
+                id: 'khan-academy',
+                name: 'Khan Academy',
+                description: 'A non-profit organization offering free, world-class education for anyone, anywhere. Covers subjects from math to arts.',
+                link: 'https://www.khanacademy.org/',
+                category: 'Education',
+                type: 'Free Course',
+                keywords: ['free education', 'online courses', 'math', 'science', 'arts', 'humanities']
+            },
+            {
+                id: 'coursera-free',
+                name: 'Coursera (Free Courses)',
+                description: 'Offers a selection of free courses from top universities and companies worldwide, in various subjects.',
+                link: 'https://www.coursera.org/courses/free',
+                category: 'Education',
+                type: 'Free Course',
+                keywords: ['online courses', 'free education', 'university courses', 'professional development']
+            },
+            {
+                id: 'sci-hub',
+                name: 'Sci-Hub (Research Papers)',
+                description: 'Provides free access to millions of research papers and articles. Note: Its legality varies by region and source.',
+                link: 'https://sci-hub.se/', // Current popular mirror, might change
+                category: 'Utility', // Categorizing as utility for access to research
                 type: 'Free Research',
-                keywords: ['open access journals', 'research papers', 'academic resources', 'free research']
+                keywords: ['research papers', 'academic articles', 'free access', 'scientific literature']
             },
             {
-                id: 'plos',
-                name: 'PLOS (Public Library of Science)',
-                description: 'A pioneer in open access scientific publishing, offering free access to research papers in science and medicine.',
-                link: 'https://plos.org/',
-                category: 'utility_tool',
+                id: 'core-ac-uk',
+                name: 'CORE (Connecting Repositories)',
+                description: 'Aggregates open-access research from repositories and journals, offering millions of free papers. A legal alternative for research access.',
+                link: 'https://core.ac.uk/',
+                category: 'Utility',
                 type: 'Free Research',
-                keywords: ['open access', 'scientific publishing', 'medicine research', 'free research papers']
+                keywords: ['open access', 'research papers', 'academic articles', 'scientific literature']
             },
             {
-                id: 'scienceopen',
-                name: 'ScienceOpen',
-                description: 'A discovery platform with open access content and peer review features for scholarly articles.',
-                link: 'https://www.scienceopen.com/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['open access', 'scholarly articles', 'peer review', 'research platform']
-            },
-            {
-                id: 'google-scholar-research',
-                name: 'Google Scholar',
-                description: 'A search engine for scholarly literature across many disciplines, including articles, theses, books, and abstracts.',
-                link: 'https://scholar.google.com/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['scholarly literature', 'academic search engine', 'research papers', 'theses', 'free search']
-            },
-            {
-                id: 'base-search',
-                name: 'Bielefeld Academic Search Engine (BASE)',
-                description: 'Indexes over 300 million documents from more than 10,000 sources, focusing on academic and scientific documents.',
-                link: 'https://www.base-search.net/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['academic search engine', 'research papers', 'scientific documents', 'free search']
-            },
-            {
-                id: 'arxiv',
-                name: 'arXiv',
-                description: 'A leading preprint server for physics, mathematics, computer science, quantitative biology, and more.',
-                link: 'https://arxiv.org/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['preprint server', 'physics', 'mathematics', 'computer science', 'open access']
-            },
-            {
-                id: 'ssrn',
-                name: 'SSRN',
-                description: 'An online repository for research papers in the social sciences and humanities, including economics, law, and corporate governance.',
-                link: 'https://www.ssrn.com/index.cfm/en/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['social sciences research', 'humanities research', 'academic repository', 'free research']
-            },
-            {
-                id: 'zenodo',
-                name: 'Zenodo',
-                description: 'A CERN-backed repository for all disciplines, including datasets, software, research results, and publications.',
-                link: 'https://zenodo.org/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['research repository', 'datasets', 'software', 'publications', 'cern', 'open access']
-            },
-            {
-                id: 'paperpanda',
-                name: 'PaperPanda',
-                description: 'Offers a comprehensive collection of free research papers with easy search and download options.',
-                link: 'https://paperpanda.app/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['free research papers', 'academic articles', 'paper download', 'research tool']
-            },
-            {
-                id: 'citationsy-archives',
-                name: 'Citationsy Archives',
-                description: 'Hosts an extensive collection of academic articles across multiple disciplines.',
-                link: 'https://citationsy.com/archives',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['academic articles', 'research papers', 'citations', 'free archive']
-            },
-            {
-                id: 'eric-database',
-                name: 'ERIC (Educational Resources Information Center)',
-                description: 'A database of educational resources and research papers, sponsored by the U.S. Department of Education.',
-                link: 'https://eric.ed.gov/',
-                category: 'utility_tool',
-                type: 'Free Research',
-                keywords: ['educational resources', 'research papers', 'education database', 'free research']
-            },
-            {
-                id: 'deepdyve',
-                name: 'DeepDyve',
-                description: 'Offers access to a vast collection of journals with a free trial option.',
-                link: 'https://www.deepdyve.com/',
-                category: 'utility_tool',
-                type: 'Paid Research',
-                keywords: ['journal access', 'research papers', 'free trial']
-            },
-            {
-                id: 'sciencedirect',
-                name: 'ScienceDirect',
-                description: 'A leading platform for scientific, technical, and medical research papers (subscription-based).',
-                link: 'https://www.sciencedirect.com/',
-                category: 'utility_tool',
-                type: 'Paid Research',
-                keywords: ['scientific research', 'technical papers', 'medical research', 'subscription']
-            },
-            {
-                id: 'ieee-xplore',
-                name: 'IEEE Xplore',
-                description: 'A digital library for technical and scientific literature, especially in electrical engineering and computer science (subscription-based).',
-                link: 'https://ieeexplore.ieee.org/Xplore/home.jsp',
-                category: 'utility_tool',
-                type: 'Paid Research',
-                keywords: ['electrical engineering', 'computer science', 'technical literature', 'subscription']
-            },
-            {
-                id: 'researchgate',
-                name: 'ResearchGate',
-                description: 'A platform for researchers to share papers, data, and findings, with many authors uploading full-text versions of their publications.',
-                link: 'https://www.researchgate.net/',
-                category: 'utility_tool',
+                id: 'academia-edu',
+                name: 'Academia.edu',
+                description: 'A platform for researchers to share papers, monitor their impact, and follow the research in their field. Many papers are freely available.',
+                link: 'https://www.academia.edu/',
+                category: 'Freemium Research',
                 type: 'Freemium Research',
-                keywords: ['research community', 'academic network', 'full-text papers', 'open science']
+                keywords: ['research papers', 'academic network', 'open access', 'scholarly sharing']
             },
             {
-                id: 'unpaywall',
-                name: 'Unpaywall',
-                description: 'A browser extension that finds legal, free full-text versions of paywalled papers as you browse.',
-                link: 'https://unpaywall.org/',
-                category: 'utility_tool',
-                type: 'Free Tool',
-                keywords: ['browser extension', 'open access', 'research papers', 'free full-text']
+                id: 'mdpi',
+                name: 'MDPI (Open Access Journals)',
+                description: 'A large open-access publisher providing free access to high-quality, peer-reviewed scientific journals across various fields.',
+                link: 'https://www.mdpi.com/',
+                category: 'Utility',
+                type: 'Free Research',
+                keywords: ['open access journals', 'scientific publishing', 'peer-reviewed articles', 'research']
+            },
+            {
+                id: 'openlearn',
+                name: 'OpenLearn (Open University)',
+                description: 'Offers over 1000 free courses and educational resources from The Open University across various subjects, including certificates.',
+                link: 'https://www.open.edu/openlearn/',
+                category: 'Education',
+                type: 'Free Course',
+                keywords: ['free courses', 'online education', 'open university', 'learning resources']
+            },
+            {
+                id: 'internet-archive',
+                name: 'Internet Archive',
+                description: 'A non-profit library of millions of free books, movies, software, music, websites, and more.',
+                link: 'https://archive.org/',
+                category: 'Utility',
+                type: 'Free',
+                keywords: ['digital library', 'free books', 'archive', 'historical data']
+            },
+            {
+                id: 'z-lib',
+                name: 'Z-Library (mirrors)',
+                description: 'A large collection of free books and articles. Note: Legality varies by region. Use caution and consult local laws.',
+                link: 'https://singlelogin.re/', // Example of a current mirror
+                category: 'Utility',
+                type: 'Free Book',
+                keywords: ['free books', 'ebooks', 'articles']
+            },
+            {
+                id: 'libgen',
+                name: 'Library Genesis (LibGen)',
+                description: 'A searchable database of pirated academic papers and books. Note: Content legality varies by region; use with discretion.',
+                link: 'http://libgen.rs/', // Popular mirror
+                category: 'Utility',
+                type: 'Free Book',
+                keywords: ['free books', 'academic papers', 'ebooks']
+            },
+            {
+                id: 'techradar-backup',
+                name: 'TechRadar - Best Free Backup Software',
+                description: 'An article listing and reviewing top free backup software solutions for individuals and small businesses, like Google Drive and Paragon Backup & Recovery.',
+                link: 'https://www.techradar.com/best/best-free-backup-software',
+                category: 'Utility',
+                type: 'Free Guide',
+                keywords: ['free backup', 'data backup', 'cloud storage', 'small business', 'software review']
+            },
+            {
+                id: 'google-drive-backup',
+                name: 'Google Drive (for Backup)',
+                description: 'Provides free cloud storage that can be used for backing up individual directories and files. Integrated with Google ecosystem.',
+                link: 'https://drive.google.com/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['cloud storage', 'file backup', 'free storage', 'google']
+            },
+            {
+                id: 'onedrive-backup',
+                name: 'Microsoft OneDrive (for Backup)',
+                description: 'Microsoft\'s cloud storage offering free space for backup, integrated with Windows and Microsoft 365 services.',
+                link: 'https://onedrive.live.com/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['cloud storage', 'file backup', 'free storage', 'microsoft']
+            },
+            {
+                id: 'dropbox-backup',
+                name: 'Dropbox (for Backup)',
+                description: 'Cloud storage solution with file sharing and backup capabilities. Offers a free basic plan.',
+                link: 'https://www.dropbox.com/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['cloud storage', 'file backup', 'file sharing', 'free storage']
+            },
+            {
+                id: 'mega-nz',
+                name: 'MEGA (Cloud Storage)',
+                description: 'Cloud storage with generous free tier (20GB) and end-to-end encryption, accessible via web, desktop, and mobile apps.',
+                link: 'https://mega.nz/',
+                category: 'Utility',
+                type: 'Freemium',
+                keywords: ['cloud storage', 'encrypted storage', 'free storage', 'data privacy']
+            },
+            // --- NEW FREE/FREEMIUM DESIGN RESOURCES ---
+            {
+                id: 'unsplash',
+                name: 'Unsplash',
+                description: 'A vast library of high-quality, free-to-use stock photos provided by a community of photographers.',
+                link: 'https://unsplash.com/',
+                category: 'Design',
+                type: 'Free',
+                keywords: ['stock photos', 'free images', 'photography', 'design resources']
+            },
+            {
+                id: 'pexels',
+                name: 'Pexels',
+                description: 'Provides high-quality and completely free stock photos and videos for personal and commercial use.',
+                link: 'https://www.pexels.com/',
+                category: 'Design',
+                type: 'Free',
+                keywords: ['stock photos', 'free videos', 'photography', 'design resources']
+            },
+            {
+                id: 'figma-free-tier',
+                name: 'Figma (Free Tier)',
+                description: 'A collaborative interface design tool with a free starter plan for individuals and small teams, offering robust features for UI/UX design and prototyping.',
+                link: 'https://www.figma.com/pricing/',
+                category: 'Design',
+                type: 'Freemium',
+                keywords: ['ui/ux design', 'wireframing', 'prototyping', 'collaboration', 'free design tool']
             }
         ];
 
         // Helper function to define categories with titles and icons
         const categoriesConfig = {
-            ai_tool: { title: "Cutting-Edge AI Tools & Generators", icon: `
+            'AI Tools': { title: "Cutting-Edge AI Tools & Generators", icon: `
                 <svg class="w-10 h-10 mr-4 text-blue-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9.25 17L9.25 19L9.75 19L9.75 17ZM14.25 17L14.75 17L14.75 19L14.25 19L14.25 17ZM12 4V2M12 22V20M4.93 4.93L3.51 3.51M19.07 19.07L20.49 20.49M3.51 20.49L4.93 19.07M20.49 3.51L19.07 4.93M2 12H4M20 12H22"></path>
                 </svg>`
             },
-            ai_tester: { title: "Robust AI Testing & QA Platforms", icon: `
-                <svg class="w-10 h-10 mr-4 text-purple-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.001 12.001 0 002.944 12c.046 2.054.307 4.077.78 6.059L21.5 14.5l-2.023-2.023a12.001 12.001 0 00-.78-6.059z"></path>
-                </svg>`
-            },
-            it_resource: { title: "Essential Cloud Providers", icon: `
-                <svg class="w-10 h-10 mr-4 text-teal-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M3 14h18m-9-4v8m-7-8h14a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2v-8a2 2 0 012-2z"></path>
-                </svg>`
-            },
-            web_hosting: { title: "Reliable Website Hosting & Domain Solutions", icon: `
-                <svg class="w-10 h-10 mr-4 text-orange-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 9.75L12 12.75L16.5 9.75M7.5 14.25L12 17.25L16.5 14.25"></path>
-                </svg>`
-            },
-            utility_tool: { title: "Powerful Utility & Productivity Tools", icon: `
+            'Business Management': { title: "Essential AI & Free Business Tools", icon: `
                 <svg class="w-10 h-10 mr-4 text-green-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.51 23.51 0 0112 15c-1.352 0-2.678-.175-3.953-.518M12 12a4 4 0 100-8 4 4 0 000 8zm-2.83 5.942C5.973 16.275 3 14.256 3 12c0-1.895 1.144-3.528 2.766-4.225M21 12c0 1.895-1.144 3.528-2.766 4.225m-14.79-1.282A21.572 21.572 0 0112 18c2.494 0 4.86-.484 7.042-1.378"></path>
+                </svg>`
+            },
+            'Productivity': { title: "Powerful Utility & Productivity Tools", icon: `
+                <svg class="w-10 h-10 mr-4 text-orange-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
+                </svg>`
+            },
+            'Development': { title: "Essential Development & Coding Resources", icon: `
+                <svg class="w-10 h-10 mr-4 text-purple-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>`
+            },
+            'Design': { title: "Creative Design & Multimedia Software", icon: `
+                <svg class="w-10 h-10 mr-4 text-red-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c1.657 0 3 .895 3 2s-1.343 2-3 2-3-.895-3-2 1.343-2 3-2z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15c-3.136 0-6.284-.69-9-2.025V17a3 3 0 003 3h12a3 3 0 003-3v-4.025C18.284 14.31 15.136 15 12 15z"></path>
+                </svg>`
+            },
+            'Data Science': { title: "Data Science & Analytics Platforms", icon: `
+                <svg class="w-10 h-10 mr-4 text-indigo-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 12l2-2 2 2 2-2 2 2M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>`
+            },
+            'Education': { title: "Learning & Research Hubs", icon: `
+                <svg class="w-10 h-10 mr-4 text-cyan-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5s3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18s-3.332.477-4.5 1.253"></path>
+                </svg>`
+            },
+            'Utility': { title: "General Utilities & Online Converters", icon: `
+                <svg class="w-10 h-10 mr-4 text-yellow-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.942 3.331.83 2.573 2.573a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.942 1.543-.83 3.331-2.573 2.573a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.942-3.331-.83-2.573-2.573a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.942-1.543.83-3.331 2.573-2.573a1.724 1.724 0 002.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>`
+            },
+            'Web Hosting': { title: "Reliable Website Hosting & Domain Solutions", icon: `
+                <svg class="w-10 h-10 mr-4 text-teal-400 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.5 9.75L12 12.75L16.5 9.75M7.5 14.25L12 17.25L16.5 14.25"></path>
                 </svg>`
             },
         };
@@ -1416,6 +2196,8 @@
         let contentSectionsContainerEl;
         let noResultsMessageEl;
         let noResultsTextEl;
+        let featuredFreeToolsSectionEl; // New reference
+        let featuredToolsGridEl; // New reference
 
         // Function to initialize DOM element references after HTML is loaded
         function getDOMElements() {
@@ -1426,9 +2208,49 @@
             contentSectionsContainerEl = document.getElementById('content-sections-container');
             noResultsMessageEl = document.getElementById('no-results-message');
             noResultsTextEl = document.getElementById('no-results-text');
+            featuredFreeToolsSectionEl = document.getElementById('featured-free-tools'); // Initialize new element
+            featuredToolsGridEl = document.getElementById('featured-tools-grid'); // Initialize new element
         }
 
-        // --- Core Rendering Functions ---
+        /**
+         * Renders a single card element for a tool/resource.
+         */
+        function renderCard(item) {
+            const card = document.createElement('a'); // Changed to <a> for better semantics and hover effect
+            card.href = item.link;
+            card.target = "_blank";
+            card.rel = "noopener noreferrer";
+            card.className = `block bg-gray-700 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-600 hover:border-blue-500 group`;
+
+            // Construct dynamic tags
+            const tagsHtml = `
+                <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full capitalize ${
+                    item.category.toLowerCase().replace(/\s/g, '-') ? `tag-${item.category.toLowerCase().replace(/\s/g, '-')}` : 'bg-gray-600 text-gray-300'
+                } backdrop-blur-sm">
+                    ${item.category}
+                </span>
+                <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full capitalize ${
+                    item.type.toLowerCase().replace(/[\s\/]/g, '-') ? `type-${item.type.toLowerCase().replace(/[\s\/]/g, '-')}` : 'bg-gray-600 text-gray-300'
+                } backdrop-blur-sm">
+                    ${item.type}
+                </span>
+                ${item.keywords ? item.keywords.map(keyword => `
+                    <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-gray-600/50 text-gray-300 backdrop-blur-sm">
+                        ${keyword}
+                    </span>
+                `).join('') : ''}
+            `;
+
+            card.innerHTML = `
+                <h3 class="text-2xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">${item.name}</h3>
+                <p class="text-gray-300 text-base mb-4 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">${item.description}</p>
+                <div class="flex flex-wrap gap-2">
+                    ${tagsHtml}
+                </div>
+            `;
+            return card;
+        }
+
 
         /**
          * Renders the main content sections (categories and items) based on the current searchQuery.
@@ -1442,7 +2264,8 @@
                 const descriptionMatch = item.description && item.description.toLowerCase().includes(lowerCaseQuery);
                 const keywordsMatch = item.keywords && Array.isArray(item.keywords) && item.keywords.some(keyword => typeof keyword === 'string' && keyword.toLowerCase().includes(lowerCaseQuery));
                 const typeMatch = item.type && item.type.toLowerCase().includes(lowerCaseQuery);
-                return nameMatch || descriptionMatch || keywordsMatch || typeMatch;
+                const categoryMatch = item.category && item.category.toLowerCase().includes(lowerCaseQuery); // Add category to search
+                return nameMatch || descriptionMatch || keywordsMatch || typeMatch || categoryMatch;
             });
 
             // Group filtered items by category for display
@@ -1460,6 +2283,19 @@
             let contentHtml = '';
             let hasVisibleContent = false;
 
+            // Hide featured section if there's an active search query
+            if (searchQuery.length > 0) {
+                if (featuredFreeToolsSectionEl) { // Check if element exists before hiding
+                    featuredFreeToolsSectionEl.classList.add('hidden');
+                }
+            } else {
+                // Show featured section if no search query
+                if (featuredFreeToolsSectionEl) { // Check if element exists before showing
+                    featuredFreeToolsSectionEl.classList.remove('hidden');
+                    renderFeaturedTools(); // Re-render featured tools
+                }
+            }
+
             Object.keys(categoriesConfig).forEach(catKey => {
                 const itemsInCategory = groupedItems[catKey];
                 if (itemsInCategory && itemsInCategory.length > 0) {
@@ -1467,56 +2303,18 @@
                     // Apply initial animation state based on whether it's already visible
                     const initialClass = visibleSections[catKey] ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-16 scale-98';
 
+                    // Changed mb-16 to mb-8 for consistent spacing
                     contentHtml += `
                         <section
-                            id="${catKey}"
-                            class="mb-16 p-8 bg-gray-800 rounded-2xl shadow-xl border border-gray-700 transform transition-all duration-1000 ease-out ${initialClass}"
+                            id="${catKey.toLowerCase().replace(/\s/g, '-')}-section"
+                            class="mb-8 p-8 bg-gray-800 rounded-2xl shadow-xl border border-gray-700 transform transition-all duration-1000 ease-out ${initialClass}"
                         >
                             <h2 class="text-4xl font-bold text-white mb-10 flex items-center justify-center sm:justify-start text-center sm:text-left">
                                 ${categoriesConfig[catKey].icon}
                                 ${categoriesConfig[catKey].title}
                             </h2>
                             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                ${itemsInCategory.map(item => `
-                                    <a
-                                        href="${item.link}"
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        class="block bg-gray-700 rounded-xl p-6 shadow-md hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 border border-gray-600 hover:border-blue-500 group"
-                                    >
-                                        <h3 class="text-2xl font-semibold text-white mb-3 group-hover:text-blue-300 transition-colors duration-300">${item.name}</h3>
-                                        <p class="text-gray-300 text-base mb-4 leading-relaxed group-hover:text-gray-200 transition-colors duration-300">${item.description}</p>
-                                        <div class="flex flex-wrap gap-2">
-                                            <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full ${
-                                                item.type === 'Free' ? 'bg-green-500/30 text-green-300' :
-                                                item.type === 'Paid' ? 'bg-red-500/30 text-red-300' :
-                                                item.type === 'Freemium' ? 'bg-yellow-500/30 text-yellow-300' :
-                                                item.type === 'Cloud Provider' ? 'bg-teal-500/30 text-teal-300' :
-                                                item.type === 'Included in Shopify' ? 'bg-indigo-500/30 text-indigo-300' :
-                                                item.type === 'Research/Experimental' ? 'bg-gray-500/30 text-gray-300' :
-                                                item.type === 'Research/Paid' ? 'bg-gray-600/30 text-gray-300' :
-                                                item.type === 'Commercial' ? 'bg-orange-500/30 text-orange-300' :
-                                                item.type === 'Research/Historical' ? 'bg-purple-500/30 text-purple-300' :
-                                                item.type === 'Free/Legacy' ? 'bg-gray-400/30 text-gray-200' :
-                                                item.type === 'Free Domain' ? 'bg-indigo-400/30 text-indigo-200' : // New Free Domain type styling
-                                                item.type === 'Free Course' ? 'bg-blue-500/30 text-blue-300' : // New type for Free Courses
-                                                item.type === 'Free API' ? 'bg-cyan-500/30 text-cyan-300' : // New type for Free APIs
-                                                item.type === 'Community' ? 'bg-pink-500/30 text-pink-300' : // New type for Communities
-                                                item.type === 'Free Book' ? 'bg-brown-500/30 text-brown-300' : // New type for Free Books
-                                                item.type === 'Free Research' ? 'bg-sky-500/30 text-sky-300' : // New type for Free Research
-                                                item.type === 'Paid Research' ? 'bg-amber-500/30 text-amber-300' : // New type for Paid Research
-                                                item.type === 'Freemium Research' ? 'bg-lime-500/30 text-lime-300' : // New type for Freemium Research
-                                                item.link === 'LINK_UNAVAILABLE' ? 'bg-gray-900/50 text-gray-500 border border-red-500' : // Unavailable Link
-                                                'bg-blue-500/30 text-blue-300' // Default if none matches
-                                            } backdrop-blur-sm">
-                                                ${item.type}
-                                            </span>
-                                            <span class="inline-block px-3 py-1 text-sm font-semibold rounded-full bg-gray-600/50 text-gray-300 backdrop-blur-sm">
-                                                ${categoriesConfig[item.category].title.split(' ')[0]}
-                                            </span>
-                                        </div>
-                                    </a>
-                                `).join('')}
+                                ${itemsInCategory.map(item => renderCard(item).outerHTML).join('')}
                             </div>
                         </section>
                     `;
@@ -1536,6 +2334,47 @@
             // Re-setup observer for new sections as content has changed
             setupIntersectionObserver();
         }
+
+        /**
+         * Renders the featured free tools in the dedicated section.
+         * This function is called when the search bar is empty.
+         */
+        function renderFeaturedTools() {
+            if (!featuredToolsGridEl) return;
+
+            featuredToolsGridEl.innerHTML = ''; // Clear previous featured tools
+
+            // Curate a list of popular FREE or FREEMIUM tools to feature
+            const featuredToolIds = [
+                'google-gemini',
+                'microsoft-designer',
+                'hubspot-crm-free',
+                'taskade',
+                'google-notebooklm',
+                'ilovepdf',
+                'project-gutenberg',
+                'class-central',
+                'sololearn-compiler',
+                'mega-nz',
+                'vercel', // Newly added
+                'unsplash' // Newly added
+            ];
+
+            const featuredItems = featuredToolIds
+                .map(id => allItems.find(item => item.id === id))
+                .filter(item => item && (item.type.includes('Free') || item.type.includes('Freemium'))); // Ensure they are truly free/freemium, including all 'Free X' types
+
+            // Shuffle and pick a subset if too many
+            const shuffledFeatured = featuredItems.sort(() => 0.5 - Math.random());
+            const displayCount = 6; // Max 6 featured tools for initial view
+            const displayedFeatured = shuffledFeatured.slice(0, displayCount);
+
+
+            displayedFeatured.forEach(item => {
+                featuredToolsGridEl.appendChild(renderCard(item));
+            });
+        }
+
 
         /**
          * Updates the search input field's value, renders search suggestions,
@@ -1582,6 +2421,20 @@
             searchQuery = event.target.value;
             generateSuggestions();
             updateSearchInputAndSuggestions(); // Only update search bar and suggestions here
+
+            // If the search query is empty, show featured tools, otherwise hide them
+            if (searchQuery === '') {
+                if (featuredFreeToolsSectionEl) {
+                    featuredFreeToolsSectionEl.classList.remove('hidden');
+                    renderFeaturedTools();
+                }
+                contentSectionsContainerEl.innerHTML = ''; // Clear full content when search is empty
+                renderContentSections(); // Render all sections
+            } else {
+                 if (featuredFreeToolsSectionEl) {
+                    featuredFreeToolsSectionEl.classList.add('hidden');
+                }
+            }
         }
 
         /**
@@ -1613,10 +2466,20 @@
                             }
                         });
                     }
+                    // This is key for 'free' and 'freemium' searches
                     if (item.type && item.type.toLowerCase().includes(lowerCaseQuery)) {
                         matchingSuggestions.add(item.type);
                     }
+                    if (item.category && item.category.toLowerCase().includes(lowerCaseQuery)) {
+                        matchingSuggestions.add(item.category);
+                    }
                 });
+                // Add explicit "Free" and "Freemium" suggestions if query matches parts of them
+                if ('free'.includes(lowerCaseQuery)) matchingSuggestions.add('Free');
+                if ('freemium'.includes(lowerCaseQuery)) matchingSuggestions.add('Freemium');
+                if ('beta'.includes(lowerCaseQuery)) matchingSuggestions.add('Research/Experimental (Beta)'); // Suggest the type for beta tools
+
+
                 // Sort suggestions alphabetically and take the first 8
                 suggestions = Array.from(matchingSuggestions).sort().slice(0, 8);
             } else {
@@ -1629,7 +2492,12 @@
          * Updates the search query, clears suggestions, and triggers a full content re-render.
          */
         function handleSuggestionClick(event) {
-            const suggestion = event.target.dataset.suggestion;
+            let suggestion = event.target.dataset.suggestion;
+            // Map the "Research/Experimental (Beta)" suggestion back to the internal type
+            if (suggestion === 'Research/Experimental (Beta)') {
+                suggestion = 'Research/Experimental';
+            }
+
             if (suggestion) {
                 searchQuery = suggestion;
                 suggestions = []; // Clear suggestions after selection
@@ -1730,9 +2598,6 @@
                             entry.target.classList.remove('opacity-0', 'translate-y-16', 'scale-98');
                         }
                     }
-                    // Optional: If you want sections to re-animate when scrolled out and back into view,
-                    // you would add an else block here to remove the visible classes.
-                    // For a professional UX, keeping them visible once revealed is usually preferred.
                 });
             }, observerOptions);
 
@@ -1740,6 +2605,10 @@
             document.querySelectorAll('#content-sections-container section').forEach(section => {
                 observer.observe(section);
             });
+             // Also observe the featured free tools section
+            if (featuredFreeToolsSectionEl && !featuredFreeToolsSectionEl.classList.contains('hidden')) {
+                observer.observe(featuredFreeToolsSectionEl);
+            }
         }
 
         // --- Global Event Listeners ---
