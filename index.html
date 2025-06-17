@@ -10,9 +10,67 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
 
+        :root {
+            --bg-start-dark: #0a0a23;
+            --bg-end-dark: #1a1a3a;
+            --card-bg-dark: rgba(31, 41, 55, 0.9); /* gray-800 with slight transparency */
+            --card-border-dark: #374151; /* gray-700 */
+            --text-primary-dark: #e5e7eb; /* gray-200 */
+            --text-secondary-dark: #d1d5db; /* gray-300 */
+            --accent-blue: #6366f1; /* indigo-500 */
+            --accent-green: #22c55e; /* green-500 */
+
+            --bg-start-light: #f3f4f6;
+            --bg-end-light: #e5e7eb;
+            --card-bg-light: rgba(249, 250, 251, 0.9); /* gray-50 with slight transparency */
+            --card-border-light: #e5e7eb; /* gray-200 */
+            --text-primary-light: #1f2937; /* gray-800 */
+            --text-secondary-light: #4b5563; /* gray-600 */
+        }
+
         body {
             font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--bg-start-dark) 0%, var(--bg-end-dark) 100%);
+            color: var(--text-primary-dark);
+            transition: background-color 0.5s ease, color 0.5s ease;
         }
+
+        /* Light Mode */
+        body.light-mode {
+            background: linear-gradient(135deg, var(--bg-start-light) 0%, var(--bg-end-light) 100%);
+            color: var(--text-primary-light);
+        }
+        body.light-mode #app {
+            background-color: var(--card-bg-light);
+            border-color: var(--card-border-light);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 8px 10px -6px rgba(0,0,0,0.1);
+        }
+        body.light-mode .text-gray-100 { color: var(--text-primary-light); }
+        body.light-mode .text-gray-200 { color: var(--text-primary-light); }
+        body.light-mode .text-gray-300 { color: var(--text-secondary-light); }
+        body.light-mode .text-gray-400 { color: var(--text-secondary-light); }
+        body.light-mode .bg-gray-800 { background-color: var(--card-bg-light); border-color: var(--card-border-light); }
+        body.light-mode .bg-gray-700 { background-color: var(--card-bg-light); border-color: var(--card-border-light); }
+        body.light-mode .bg-gray-700 input { color: var(--text-primary-light); placeholder-color: var(--text-secondary-light); }
+        body.light-mode .bg-gray-700 button#clear-search-button svg { color: var(--text-secondary-light); }
+        body.light-mode .text-white { color: var(--text-primary-light); }
+        body.light-mode .text-blue-400 { color: #1e40af; } /* Darker blue for light mode */
+        body.light-mode .text-green-400 { color: #166534; } /* Darker green for light mode */
+        body.light-mode .text-orange-400 { color: #b45309; } /* Darker orange for light mode */
+        body.light-mode .text-purple-400 { color: #7e22ce; } /* Darker purple for light mode */
+        body.light-mode .text-red-400 { color: #dc2626; } /* Darker red for light mode */
+        body.light-mode .text-indigo-400 { color: #4338ca; } /* Darker indigo for light mode */
+        body.light-mode .text-cyan-400 { color: #0e7490; } /* Darker cyan for light mode */
+        body.light-mode .text-yellow-400 { color: #b45309; } /* Darker yellow for light mode */
+        body.light-mode .text-teal-400 { color: #0f766e; } /* Darker teal for light mode */
+        body.light-mode .text-green-300 { color: #16a34a; } /* Darker green for light mode */
+        body.light-mode .text-gray-500 { color: #6b7280; } /* Adjust for light mode */
+
+        /* Card specific light mode adjustments */
+        body.light-mode .group:hover .text-white { color: var(--accent-blue); }
+        body.light-mode .group:hover .text-gray-200 { color: var(--text-secondary-light); }
+        body.light-mode .group:hover .text-gray-300 { color: var(--text-secondary-light); }
+
 
         /* Custom Keyframe Animations for Professional Touch */
         @keyframes gradient-shift {
@@ -44,6 +102,10 @@
             70% { transform: scale(0.9); }
             100% { transform: scale(1); }
         }
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
 
         .animate-fade-in-down { animation: fadeInDown 0.8s ease-out forwards; }
         .animate-fade-in { animation: fadeInDown 0.8s ease-out forwards; }
@@ -51,6 +113,8 @@
         .animate-fade-in-down-quick { animation: fadeInDown 0.3s ease-out forwards; }
         .animate-pulse-slight { animation: pulseSlight 2s ease-in-out infinite; }
         .animate-bounce-in { animation: bounceIn 0.5s ease-out; }
+        .animate-spin-slow { animation: spin 2s linear infinite; }
+
 
         /* Custom category tag colors */
         .tag-ai-tool { background-color: #6366f1; color: #e0e7ff; }
@@ -100,7 +164,7 @@
 
     <div id="app" class="container mx-auto relative z-10 bg-gray-800 bg-opacity-90 rounded-3xl shadow-2xl p-8 lg:p-12 border border-gray-700 backdrop-blur-sm">
         <!-- Header Section -->
-        <header class="text-center mb-16 pt-8 pb-4">
+        <header class="text-center mb-16 pt-8 pb-4 relative">
             <h1 class="text-7xl font-extrabold text-white mb-4 tracking-tight leading-tight drop-shadow-xl animate-fade-in-down">
                 <span class="text-blue-400">AI</span> Navigator
                 <span class="ml-4 inline-block transform rotate-[-10deg] animate-pulse-slight">🚀</span>
@@ -111,6 +175,12 @@
             <p class="text-xl text-gray-400 font-normal mt-4 max-w-3xl mx-auto animate-fade-in delay-300">
                 Whether you're a student, developer, business owner, or enthusiast, find exactly what you need to innovate, learn, and grow.
             </p>
+
+            <!-- Theme Toggle Button -->
+            <button id="theme-toggle" class="absolute top-8 right-8 p-3 rounded-full bg-gray-700 text-gray-200 shadow-lg hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors duration-300">
+                <svg class="w-6 h-6 sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="display: none;"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h1M2 12h1m15.364 6.364l-.707.707M6.343 6.343l-.707-.707m12.728 0l-.707-.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                <svg class="w-6 h-6 moon-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+            </button>
         </header>
 
         <!-- Search Bar Section -->
@@ -142,6 +212,12 @@
             <div id="suggestions-container" class="absolute left-0 right-0 mt-3 bg-gray-700 rounded-lg shadow-xl max-h-60 overflow-y-auto border border-gray-600 animate-fade-in-down-quick hidden">
                 <!-- Suggestions will be dynamically inserted here -->
             </div>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="loading-spinner" class="text-center py-8 hidden">
+            <div class="inline-block w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin-slow"></div>
+            <p class="mt-4 text-xl text-blue-300">Searching for amazing resources...</p>
         </div>
 
         <!-- Featured Free Tools Section (Visible when search is empty) -->
@@ -1269,6 +1345,33 @@
                 type: 'Research/Experimental',
                 keywords: ['ai beta', 'pixel art', 'game assets', 'image generation', 'experimental ai']
             },
+            {
+                id: 'synth-voice-ai-beta',
+                name: 'SynthVoice AI (Beta)',
+                description: 'A beta voice synthesis platform focused on creating highly expressive and customizable AI voices for various applications, including virtual assistants and audiobooks.',
+                link: 'https://example.com/synth-voice-ai-beta',
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'voice synthesis', 'text-to-speech', 'ai voice', 'experimental ai']
+            },
+            {
+                id: 'insight-analyst-ai-beta',
+                name: 'Insight Analyst AI (Beta)',
+                description: 'An experimental AI designed to automatically analyze large datasets and generate actionable business insights, currently in private beta.',
+                link: 'https://example.com/insight-analyst-ai-beta',
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'data analysis', 'business intelligence', 'predictive analytics', 'experimental ai']
+            },
+            {
+                id: 'code-genie-ai-beta',
+                name: 'Code Genie AI (Beta)',
+                description: 'A beta AI assistant specializing in generating boilerplate code, fixing common bugs, and optimizing existing code snippets for various programming languages.',
+                link: 'https://example.com/code-genie-ai-beta',
+                category: 'AI Tools',
+                type: 'Research/Experimental',
+                keywords: ['ai beta', 'code generation', 'bug fixing', 'code optimization', 'developer tool', 'experimental ai']
+            },
             // --- Business Management Tools (New Category) ---
             {
                 id: 'hubspot-crm-free',
@@ -2198,6 +2301,11 @@
         let noResultsTextEl;
         let featuredFreeToolsSectionEl; // New reference
         let featuredToolsGridEl; // New reference
+        let loadingSpinnerEl; // New reference for loading spinner
+        let themeToggleBtn; // New reference for theme toggle
+        let sunIcon; // New reference for sun icon
+        let moonIcon; // New reference for moon icon
+
 
         // Function to initialize DOM element references after HTML is loaded
         function getDOMElements() {
@@ -2210,6 +2318,10 @@
             noResultsTextEl = document.getElementById('no-results-text');
             featuredFreeToolsSectionEl = document.getElementById('featured-free-tools'); // Initialize new element
             featuredToolsGridEl = document.getElementById('featured-tools-grid'); // Initialize new element
+            loadingSpinnerEl = document.getElementById('loading-spinner'); // Initialize loading spinner
+            themeToggleBtn = document.getElementById('theme-toggle'); // Initialize theme toggle
+            sunIcon = themeToggleBtn.querySelector('.sun-icon');
+            moonIcon = themeToggleBtn.querySelector('.moon-icon');
         }
 
         /**
@@ -2257,7 +2369,7 @@
          * This function should be called when the search filter needs to be applied,
          * typically on search button click, Enter key, or suggestion click.
          */
-        function renderContentSections() {
+        async function renderContentSections() { // Made async to simulate loading
             const lowerCaseQuery = searchQuery.toLowerCase();
             const filteredItems = allItems.filter(item => {
                 const nameMatch = item.name && item.name.toLowerCase().includes(lowerCaseQuery);
@@ -2267,6 +2379,13 @@
                 const categoryMatch = item.category && item.category.toLowerCase().includes(lowerCaseQuery); // Add category to search
                 return nameMatch || descriptionMatch || keywordsMatch || typeMatch || categoryMatch;
             });
+
+            // Show loading spinner
+            loadingSpinnerEl.classList.remove('hidden');
+            contentSectionsContainerEl.innerHTML = ''; // Clear previous content
+            noResultsMessageEl.classList.add('hidden'); // Hide no results message initially
+
+            await new Promise(resolve => setTimeout(resolve, 500)); // Simulate API call or heavy processing
 
             // Group filtered items by category for display
             const groupedItems = {};
@@ -2322,6 +2441,9 @@
             });
 
             contentSectionsContainerEl.innerHTML = contentHtml;
+
+            // Hide loading spinner
+            loadingSpinnerEl.classList.add('hidden');
 
             // Show/hide no results message
             if (!hasVisibleContent && searchQuery) {
@@ -2568,6 +2690,32 @@
             });
         }
 
+        /**
+         * Toggles between light and dark themes.
+         */
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLightMode = document.body.classList.contains('light-mode');
+            localStorage.setItem('theme', isLightMode ? 'light' : 'dark');
+            updateThemeIcons(isLightMode);
+        }
+
+        /**
+         * Updates the visibility of theme icons based on the current theme.
+         * @param {boolean} isLightMode - True if currently in light mode, false otherwise.
+         */
+        function updateThemeIcons(isLightMode) {
+            if (sunIcon && moonIcon) {
+                if (isLightMode) {
+                    sunIcon.style.display = 'block';
+                    moonIcon.style.display = 'none';
+                } else {
+                    sunIcon.style.display = 'none';
+                    moonIcon.style.display = 'block';
+                }
+            }
+        }
+
         // --- Intersection Observer Setup ---
         let observer; // Holds the Intersection Observer instance
 
@@ -2634,7 +2782,8 @@
                     const isClickInsideSearchArea = searchInputEl.contains(event.target) ||
                                                    suggestionsContainerEl.contains(event.target) ||
                                                    (searchButtonEl && searchButtonEl.contains(event.target)) ||
-                                                   (clearSearchButtonEl && clearSearchButtonEl.contains(event.target));
+                                                   (clearSearchButtonEl && clearSearchButtonEl.contains(event.target)) ||
+                                                   (themeToggleBtn && themeToggleBtn.contains(event.target));
                     if (!isClickInsideSearchArea && suggestions.length > 0) {
                         suggestions = []; // Clear suggestions
                         updateSearchInputAndSuggestions(); // Update UI
@@ -2653,6 +2802,16 @@
          */
         document.addEventListener('DOMContentLoaded', () => {
             getDOMElements(); // Get references to DOM elements
+
+            // Apply saved theme preference or default to dark
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+                updateThemeIcons(true);
+            } else {
+                updateThemeIcons(false); // Default to dark mode icons
+            }
+
             renderContentSections(); // Render initial content (all items displayed by default)
             updateSearchInputAndSuggestions(); // Initialize search input and clear button state
             addGlobalEventListeners(); // Add global listeners for Esc, outside clicks, scroll
@@ -2678,6 +2837,9 @@
             // so no need to iterate over individual suggestion items.
             if (suggestionsContainerEl) {
                  suggestionsContainerEl.addEventListener('click', handleSuggestionClick);
+            }
+            if (themeToggleBtn) {
+                themeToggleBtn.addEventListener('click', toggleTheme);
             }
 
             // Set current year dynamically in the footer
